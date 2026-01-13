@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { fadeInUp, staggerContainer, staggerItem } from '@/utils/animations';
 import { HiStar } from 'react-icons/hi';

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { fadeInUp, staggerContainer, staggerItem } from '@/utils/animations';
 import { HiExternalLink, HiCode, HiStar, HiCloud } from 'react-icons/hi';
+import type { ComponentType } from 'react';
 import {
     SiPython,
     SiOpenai,
@@ -23,7 +24,7 @@ import {
 import styles from './Projects.module.css';
 
 // Tech icon mapping
-const techIcons: { [key: string]: any } = {
+const techIcons: Record<string, ComponentType<{ size: number }>> = {
     'Python': SiPython,
     'Azure': HiCloud,
     'OpenAI': SiOpenai,

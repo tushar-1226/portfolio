@@ -24,10 +24,11 @@ import {
     SiLinux,
     SiHuggingface,
 } from 'react-icons/si';
+import type { ComponentType } from 'react';
 import styles from './Skills.module.css';
 
 // Tech icon mapping
-const techIcons: { [key: string]: any } = {
+const techIcons: Record<string, ComponentType<{ size: number }>> = {
     'Python': SiPython,
     'React': SiReact,
     'Next.js': SiNextdotjs,

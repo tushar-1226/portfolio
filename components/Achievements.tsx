@@ -66,7 +66,7 @@ export default function Achievements() {
                     initial="hidden"
                     animate={isVisible ? 'visible' : 'hidden'}
                 >
-                    {achievements.map((achievement, index) => {
+                    {achievements.map((achievement) => {
                         const Icon = achievement.icon;
                         return (
                             <motion.div

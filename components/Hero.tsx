@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { HiArrowDown } from 'react-icons/hi';
 import { toast } from 'sonner';
-import { fadeInUp, staggerContainer, staggerItem } from '@/utils/animations';
+import { staggerContainer, staggerItem } from '@/utils/animations';
 import styles from './Hero.module.css';
 
 export default function Hero() {
