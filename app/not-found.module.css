@@ -1,0 +1,139 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, var(--color-black), var(--color-gray-900));
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 2rem;
+    max-width: 600px;
+}
+
+.title {
+    font-size: 10rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--color-white) 0%, var(--color-gray-500) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    line-height: 1;
+}
+
+.subtitle {
+    font-size: var(--font-size-3xl);
+    font-weight: 600;
+    color: var(--color-white);
+    margin-bottom: 1rem;
+}
+
+.description {
+    font-size: var(--font-size-lg);
+    color: var(--color-gray-400);
+    line-height: 1.6;
+    margin-bottom: 3rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.homeButton,
+.backButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.homeButton {
+    background: var(--color-white);
+    color: var(--color-black);
+    border: none;
+}
+
+.homeButton:hover {
+    background: var(--color-gray-200);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.backButton {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-white);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.backButton:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.glitch {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.02);
+    z-index: 0;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .title {
+        font-size: 6rem;
+    }
+
+    .subtitle {
+        font-size: var(--font-size-2xl);
+    }
+
+    .description {
+        font-size: var(--font-size-base);
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .homeButton,
+    .backButton {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .glitch {
+        font-size: 12rem;
+    }
+}

@@ -1,0 +1,124 @@
+.achievements {
+    padding: var(--spacing-2xl) 0;
+    background-color: var(--color-gray-900);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.title {
+    font-size: var(--font-size-5xl);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    font-weight: 700;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--color-gray-700) 0%, var(--color-gray-800) 100%);
+}
+
+.timelineItem {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 3rem;
+}
+
+.year {
+    position: absolute;
+    left: -2rem;
+    top: 0;
+    transform: translateX(-100%);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-gray-500);
+    white-space: nowrap;
+}
+
+.iconContainer {
+    position: absolute;
+    left: -0.75rem;
+    top: 0;
+    width: 3rem;
+    height: 3rem;
+    background: linear-gradient(135deg, var(--color-gray-700) 0%, var(--color-gray-600) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    border: 3px solid var(--color-gray-900);
+}
+
+.content {
+    background: linear-gradient(135deg, var(--color-gray-800) 0%, var(--color-gray-900) 100%);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-gray-800);
+    transition: all var(--transition-base);
+}
+
+.content:hover {
+    border-color: var(--color-gray-700);
+    transform: translateX(5px);
+}
+
+.achievementTitle {
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+}
+
+.organization {
+    font-size: var(--font-size-base);
+    color: var(--color-gray-400);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.description {
+    font-size: var(--font-size-base);
+    color: var(--color-gray-500);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .timeline {
+        padding-left: 1rem;
+    }
+
+    .year {
+        position: static;
+        transform: none;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .timelineItem {
+        padding-left: 2.5rem;
+    }
+
+    .iconContainer {
+        left: -0.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .title {
+        font-size: var(--font-size-4xl);
+    }
+}
