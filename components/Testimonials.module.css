@@ -1,6 +1,6 @@
 .testimonials {
     padding: var(--spacing-2xl) 0;
-    background: linear-gradient(to bottom, var(--color-black), var(--color-gray-900));
+    background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
     position: relative;
 }
 
@@ -14,7 +14,7 @@
     height: 1px;
     background: linear-gradient(90deg,
             transparent 0%,
-            var(--color-gray-700) 50%,
+            var(--border-color) 50%,
             transparent 100%);
 }
 
@@ -33,7 +33,7 @@
 
 .subtitle {
     text-align: center;
-    color: var(--color-gray-400);
+    color: var(--text-secondary);
     font-size: var(--font-size-lg);
     margin-bottom: var(--spacing-xl);
 }
@@ -72,7 +72,7 @@
 .quote {
     font-size: var(--font-size-base);
     line-height: 1.8;
-    color: var(--color-gray-300);
+    color: var(--text-secondary);
     margin-bottom: 2rem;
     font-style: italic;
     position: relative;
@@ -94,14 +94,14 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--color-gray-700) 0%, var(--color-gray-600) 100%);
+    background: linear-gradient(135deg, var(--text-tertiary) 0%, var(--text-secondary) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-white);
+    color: var(--bg-primary);
     font-weight: 600;
     font-size: var(--font-size-lg);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid var(--border-color);
 }
 
 .authorInfo {
@@ -111,19 +111,19 @@
 .name {
     font-size: var(--font-size-lg);
     font-weight: 600;
-    color: var(--color-white);
+    color: var(--text-primary);
     margin-bottom: 0.25rem;
 }
 
 .role {
     font-size: var(--font-size-sm);
-    color: var(--color-gray-400);
+    color: var(--text-secondary);
     margin-bottom: 0.125rem;
 }
 
 .company {
     font-size: var(--font-size-sm);
-    color: var(--color-gray-500);
+    color: var(--text-tertiary);
 }
 
 /* Mobile Responsive */

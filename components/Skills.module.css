@@ -1,6 +1,6 @@
 .skills {
     padding: var(--spacing-2xl) 0;
-    background-color: var(--color-black);
+    background-color: var(--bg-primary);
 }
 
 .container {
@@ -23,25 +23,25 @@
 }
 
 .categoryCard {
-    background: linear-gradient(135deg, var(--color-gray-900) 0%, var(--color-gray-800) 100%);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
     padding: 2rem;
     border-radius: var(--radius-xl);
-    border: 1px solid var(--color-gray-800);
+    border: 1px solid var(--border-color);
     transition: all var(--transition-base);
 }
 
 .categoryCard:hover {
-    border-color: var(--color-gray-700);
+    border-color: var(--text-tertiary);
     transform: translateY(-5px);
 }
 
 .categoryTitle {
     font-size: var(--font-size-xl);
     font-weight: 600;
-    color: var(--color-white);
+    color: var(--text-primary);
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
-    border-bottom: 2px solid var(--color-gray-800);
+    border-bottom: 2px solid var(--border-color);
 }
 
 .skillsList {
@@ -57,18 +57,18 @@
     align-items: center;
     justify-content: center;
     padding: 0.875rem;
-    background-color: var(--color-gray-800);
-    border: 1px solid var(--color-gray-700);
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
-    color: var(--color-gray-300);
+    color: var(--text-secondary);
     cursor: pointer;
     transition: all var(--transition-fast);
 }
 
 .skillIcon:hover {
-    background-color: var(--color-gray-700);
-    border-color: var(--color-gray-600);
-    color: var(--color-white);
+    background-color: var(--bg-primary);
+    border-color: var(--text-tertiary);
+    color: var(--text-primary);
 }
 
 .skillTooltip {
@@ -76,8 +76,8 @@
     bottom: 100%;
     left: 50%;
     transform: translateX(-50%) translateY(-8px);
-    background-color: var(--color-gray-900);
-    color: var(--color-white);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
     padding: 0.5rem 0.75rem;
     border-radius: var(--radius-sm);
     font-size: var(--font-size-xs);
@@ -86,7 +86,8 @@
     pointer-events: none;
     transition: opacity var(--transition-fast);
     z-index: 10;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
 }
 
 .skillTooltip::after {
@@ -96,7 +97,7 @@
     left: 50%;
     transform: translateX(-50%);
     border: 5px solid transparent;
-    border-top-color: var(--color-gray-900);
+    border-top-color: var(--bg-secondary);
 }
 
 .skillIcon:hover .skillTooltip {

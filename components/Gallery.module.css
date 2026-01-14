@@ -1,13 +1,17 @@
 .gallery {
     padding: var(--spacing-2xl) 0;
-    background-color: var(--color-gray-900);
+    background-color: var(--bg-secondary);
     overflow: hidden;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
 }
 
 .container {
     max-width: 100%;
     margin: 0 auto;
     padding: 0 var(--spacing-md);
+    width: 100%;
 }
 
 .title {
@@ -20,102 +24,176 @@
 .subtitle {
     text-align: center;
     font-size: var(--font-size-lg);
-    color: var(--color-gray-400);
-    margin-bottom: var(--spacing-xl);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-2xl);
 }
 
-.scrollContainer {
-    width: 100%;
-    overflow: hidden;
+/* 3D Carousel Container */
+.carouselContainer {
     position: relative;
-    margin: 0 -2rem;
-}
-
-.scrollContainer::before,
-.scrollContainer::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 150px;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.scrollContainer::before {
-    left: 0;
-    background: linear-gradient(to right,
-            var(--color-gray-900) 0%,
-            transparent 100%);
-}
-
-.scrollContainer::after {
-    right: 0;
-    background: linear-gradient(to left,
-            var(--color-gray-900) 0%,
-            transparent 100%);
-}
-
-.scrollTrack {
+    width: 100%;
+    height: 600px;
     display: flex;
-    gap: 2rem;
-    padding: 2rem 0;
-    animation: scroll 30s linear infinite;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
 }
 
-.scrollTrack:hover {
-    animation-play-state: paused;
+.carousel3d {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    perspective: 2000px;
+    perspective-origin: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(calc(-33.33%));
-    }
-}
-
-.photoCard {
-    flex-shrink: 0;
-    width: 550px;
-    height: 400px;
+/* Carousel Card */
+.carouselCard {
+    position: absolute;
+    width: 700px;
+    height: 450px;
     border-radius: var(--radius-xl);
     overflow: hidden;
-    background-color: var(--color-gray-800);
-    border: 1px solid var(--color-gray-800);
-    transition: all var(--transition-base);
-    animation: fadeIn 0.8s ease-out;
+    background-color: var(--bg-tertiary);
+    border: 2px solid var(--border-color);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+.carouselCard.active {
+    cursor: default;
 }
 
-.photoCard:hover {
-    border-color: var(--color-gray-700);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    transform: translateY(-5px);
-}
-
-.photo {
+.carouselImage {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform var(--transition-base);
+    transition: transform 0.5s ease;
 }
 
-.photoCard:hover .photo {
+/* Card Overlay */
+.cardOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.carouselCard.active .cardOverlay {
+    opacity: 1;
+}
+
+.cardOverlay h3 {
+    color: white;
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Hover effect for center card */
+.carouselCard.active:hover .carouselImage {
     transform: scale(1.05);
+}
+
+.carouselCard.active:hover {
+    border-color: var(--text-tertiary);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2),
+        0 0 40px rgba(128, 128, 128, 0.1);
+}
+
+/* Navigation Buttons */
+.navButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.navButton:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.navButton:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.navPrev {
+    left: 10%;
+}
+
+.navNext {
+    right: 10%;
+}
+
+/* Indicators */
+.indicators {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.75rem;
+    z-index: 100;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.2);
+}
+
+.indicatorActive {
+    background: white;
+    width: 32px;
+    border-radius: 6px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .carouselCard {
+        width: 600px;
+        height: 380px;
+    }
+
+    .navPrev {
+        left: 5%;
+    }
+
+    .navNext {
+        right: 5%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -123,13 +201,64 @@
         font-size: var(--font-size-4xl);
     }
 
-    .photoCard {
-        width: 300px;
-        height: 225px;
+    .carouselContainer {
+        height: 450px;
+        padding: 2rem 0;
     }
 
-    .scrollContainer::before,
-    .scrollContainer::after {
+    .carouselCard {
+        width: 85vw;
+        max-width: 400px;
+        height: 280px;
+    }
+
+    .navButton {
         width: 50px;
+        height: 50px;
+    }
+
+    .navPrev {
+        left: 1rem;
+    }
+
+    .navNext {
+        right: 1rem;
+    }
+
+    .cardOverlay h3 {
+        font-size: var(--font-size-lg);
+    }
+
+    .cardOverlay {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .carouselCard {
+        height: 240px;
+    }
+
+    .navButton {
+        width: 40px;
+        height: 40px;
+    }
+
+    .navButton svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .indicators {
+        bottom: 1rem;
+    }
+
+    .indicator {
+        width: 8px;
+        height: 8px;
+    }
+
+    .indicatorActive {
+        width: 24px;
     }
 }

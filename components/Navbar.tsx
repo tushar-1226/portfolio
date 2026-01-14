@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { smoothScrollTo } from '@/utils/smoothScroll';
 import { HiMenu, HiX } from 'react-icons/hi';
+import ThemeToggle from './ThemeToggle';
 import styles from './Navbar.module.css';
 
 const navItems = [
@@ -79,6 +80,9 @@ export default function Navbar() {
                         </li>
                     ))}
                 </ul>
+
+                {/* Theme Toggle */}
+                <ThemeToggle />
 
                 {/* Mobile Menu Button */}
                 <button

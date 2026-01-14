@@ -1,6 +1,6 @@
 .footer {
-    background-color: var(--color-black);
-    border-top: 1px solid var(--color-gray-900);
+    background-color: var(--bg-primary);
+    border-top: 1px solid var(--border-color);
     padding: var(--spacing-xl) 0 var(--spacing-md);
     position: relative;
 }
@@ -17,7 +17,7 @@
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-lg);
     padding-bottom: var(--spacing-lg);
-    border-bottom: 1px solid var(--color-gray-900);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .brand {
@@ -29,26 +29,26 @@
 .brandName {
     font-size: var(--font-size-2xl);
     font-weight: 600;
-    color: var(--color-white);
+    color: var(--text-primary);
 }
 
 .tagline {
     font-size: var(--font-size-base);
-    color: var(--color-gray-500);
+    color: var(--text-tertiary);
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
 .heartIcon {
-    color: var(--color-gray-600);
+    color: var(--text-secondary);
 }
 
 .linksTitle,
 .socialsTitle {
     font-size: var(--font-size-lg);
     font-weight: 600;
-    color: var(--color-white);
+    color: var(--text-primary);
     margin-bottom: 1rem;
 }
 
@@ -60,13 +60,13 @@
 }
 
 .linksList a {
-    color: var(--color-gray-400);
+    color: var(--text-secondary);
     font-size: var(--font-size-base);
     transition: color var(--transition-fast);
 }
 
 .linksList a:hover {
-    color: var(--color-white);
+    color: var(--text-primary);
 }
 
 .socialLinks {
@@ -80,17 +80,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--color-gray-900);
-    border: 1px solid var(--color-gray-800);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
     border-radius: 50%;
-    color: var(--color-gray-400);
+    color: var(--text-secondary);
     transition: all var(--transition-base);
 }
 
 .socialLink:hover {
-    background-color: var(--color-white);
-    color: var(--color-black);
-    border-color: var(--color-white);
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    border-color: var(--text-primary);
     transform: translateY(-3px);
 }
 
@@ -100,7 +100,7 @@
 
 .copyright {
     font-size: var(--font-size-sm);
-    color: var(--color-gray-600);
+    color: var(--text-tertiary);
 }
 
 .backToTop {
@@ -112,18 +112,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--color-white);
-    color: var(--color-black);
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     transition: all var(--transition-base);
     z-index: 999;
 }
 
 .backToTop:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
 

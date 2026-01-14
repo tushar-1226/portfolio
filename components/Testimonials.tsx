@@ -10,7 +10,7 @@ const testimonials = [
     {
         id: 1,
         name: 'Rishika Dhar',
-        role: 'Human Resource Executive',
+        role: 'Human Resource Assosciate',
         company: 'Alactic Inc.',
         image: '/testimonial-1.jpg',
         quote: 'Tushar is an exceptional Python developer with a deep understanding of AI/ML systems. His ability to architect scalable solutions and implement complex algorithms is truly impressive. He consistently delivers high-quality code that is both efficient and maintainable.',
@@ -27,7 +27,7 @@ const testimonials = [
     },
     {
         id: 3,
-        name: 'Rohan MOndal',
+        name: 'Rohan Mandal',
         role: 'Senior Software Developer',
         company: 'Iconiq Gifts',
         image: '/testimonial-3.jpg',
@@ -57,7 +57,7 @@ export default function Testimonials() {
                     initial="hidden"
                     animate={isVisible ? 'visible' : 'hidden'}
                 >
-                    What People Say
+                    What People Say About Me
                 </motion.h2>
 
                 <motion.p

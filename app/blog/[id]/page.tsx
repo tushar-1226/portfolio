@@ -11,8 +11,8 @@ const blogPosts = {
         id: 1,
         title: 'Getting Started with AI Development',
         type: 'Blog Post',
-        date: 'Jan 15, 2026',
-        readTime: '8 min read',
+        date: 'Jan 10, 2026',
+        readTime: '6 min read',
         color: 'yellow',
         description: 'A comprehensive guide to starting your journey in AI and machine learning development.',
         content: `
@@ -30,10 +30,7 @@ AI is transforming every industry imaginable - from healthcare to finance, from 
 
 Before diving into complex neural networks, it's crucial to understand the fundamental concepts:
 
-- **Machine Learning**: The foundation of modern AI, where systems learn from data
-- **Deep Learning**: Advanced ML using neural networks with multiple layers
-- **Natural Language Processing**: Teaching computers to understand and generate human language
-- **Computer Vision**: Enabling machines to interpret and understand visual information
+Deciding on which the tech stack you use 
 
 ### 2. Choose Your Tech Stack
 
@@ -60,33 +57,33 @@ Python has emerged as the de facto language for AI development. Here's why:
 
 Start small. I recommend beginning with a simple image classification project:
 
-1. **Collect Data**: Use datasets like MNIST or CIFAR-10
-2. **Preprocess**: Normalize and augment your data
-3. **Build Model**: Start with a simple neural network
-4. **Train**: Iterate and improve
-5. **Evaluate**: Test on unseen data
+1. Collect Data: Use datasets like MNIST or CIFAR-10
+2. Preprocess: Normalize and augment your data
+3. Build Model: Start with a simple neural network
+4. Train: Iterate and improve
+5. Evaluate: Test on unseen data
 
 ## Best Practices
 
-- **Start with Tutorials**: Follow structured courses and tutorials
-- **Work on Real Projects**: Apply what you learn to solve actual problems
-- **Join the Community**: Engage with AI communities on GitHub, Reddit, and Discord
-- **Stay Updated**: AI evolves rapidly; follow latest research and trends
-- **Experiment**: Don't be afraid to try new approaches and techniques
+- Start with Tutorials: Follow structured courses and tutorials
+- Work on Real Projects: Apply what you learn to solve actual problems
+- Join the Community: Engage with AI communities on GitHub, Reddit, and Discord
+- Stay Updated: AI evolves rapidly; follow latest research and trends
+- Experiment: Don't be afraid to try new approaches and techniques
 
 ## Common Pitfalls to Avoid
 
-1. **Overfitting**: Your model performs well on training data but poorly on new data
-2. **Insufficient Data**: AI models need substantial data to learn effectively
-3. **Ignoring Data Quality**: Garbage in, garbage out
-4. **Skipping Theory**: Understanding the math helps you debug and optimize
+1. Overfitting: Your model performs well on training data but poorly on new data
+2. Insufficient Data: AI models need substantial data to learn effectively
+3. Ignoring Data Quality: Garbage in, garbage out
+4. Skipping Theory: Understanding the math helps you debug and optimize
 
 ## Resources for Learning
 
-- **Online Courses**: Coursera, fast.ai, DeepLearning.AI
-- **Books**: "Deep Learning" by Goodfellow, "Hands-On Machine Learning" by Géron
-- **Practice Platforms**: Kaggle, Google Colab
-- **Research Papers**: ArXiv, Papers with Code
+- Online Courses: Coursera, fast.ai, DeepLearning.AI
+- Books: "Deep Learning" by Goodfellow, "Hands-On Machine Learning" by Géron
+- Practice Platforms: Kaggle, Google Colab
+- Research Papers: ArXiv, Papers with Code
 
 ## Conclusion
 
@@ -132,9 +129,9 @@ Artificial neural networks are inspired by biological neural networks in the hum
 
 The simplest type of neural network where information moves in one direction:
 
-- **Input Layer**: Receives raw data
-- **Hidden Layers**: Process information
-- **Output Layer**: Produces final predictions
+- Input Layer: Receives raw data
+- Hidden Layers: Process information
+- Output Layer: Produces final predictions
 
 **Use Cases**: Classification, regression, pattern recognition
 
@@ -142,9 +139,9 @@ The simplest type of neural network where information moves in one direction:
 
 Specialized for processing grid-like data, particularly images:
 
-- **Convolutional Layers**: Extract features using filters
-- **Pooling Layers**: Reduce dimensionality
-- **Fully Connected Layers**: Make final predictions
+- Convolutional Layers: Extract features using filters
+- Pooling Layers: Reduce dimensionality
+- Fully Connected Layers: Make final predictions
 
 **Applications**: Image recognition, object detection, medical imaging
 
@@ -152,8 +149,8 @@ Specialized for processing grid-like data, particularly images:
 
 Designed for sequential data with memory of previous inputs:
 
-- **LSTM (Long Short-Term Memory)**: Handles long-term dependencies
-- **GRU (Gated Recurrent Unit)**: Simplified version of LSTM
+- LSTM (Long Short-Term Memory): Handles long-term dependencies
+- GRU (Gated Recurrent Unit): Simplified version of LSTM
 
 **Applications**: Language modeling, time series prediction, speech recognition
 
@@ -161,9 +158,9 @@ Designed for sequential data with memory of previous inputs:
 
 The architecture behind modern language models:
 
-- **Self-Attention Mechanism**: Weighs importance of different inputs
-- **Multi-Head Attention**: Processes information in parallel
-- **Positional Encoding**: Maintains sequence information
+- Self-Attention Mechanism: Weighs importance of different inputs
+- Multi-Head Attention: Processes information in parallel
+- Positional Encoding: Maintains sequence information
 
 **Applications**: GPT, BERT, machine translation, text generation
 
@@ -171,25 +168,25 @@ The architecture behind modern language models:
 
 ### The Learning Process
 
-1. **Forward Propagation**: Input flows through network to produce output
-2. **Loss Calculation**: Measure difference between prediction and reality
-3. **Backpropagation**: Calculate gradients of loss with respect to weights
-4. **Optimization**: Update weights to minimize loss
+1. Forward Propagation: Input flows through network to produce output
+2. Loss Calculation: Measure difference between prediction and reality
+3. Backpropagation: Calculate gradients of loss with respect to weights
+4. Optimization: Update weights to minimize loss
 
 ### Optimization Algorithms
 
-- **SGD (Stochastic Gradient Descent)**: Basic but effective
-- **Adam**: Adaptive learning rates, most commonly used
-- **RMSprop**: Good for recurrent neural networks
-- **AdaGrad**: Adapts learning rate for each parameter
+- SGD (Stochastic Gradient Descent): Basic but effective
+- Adam: Adaptive learning rates, most commonly used
+- RMSprop: Good for recurrent neural networks
+- AdaGrad: Adapts learning rate for each parameter
 
 ## Challenges and Solutions
 
 ### Overfitting
 
-**Problem**: Model memorizes training data instead of learning patterns
+Problem: Model memorizes training data instead of learning patterns
 
-**Solutions**:
+*Solutions*:
 - Dropout layers
 - Data augmentation
 - Early stopping
@@ -242,10 +239,10 @@ The architecture behind modern language models:
 
 ### Emerging Trends
 
-1. **Neural Architecture Search (NAS)**: Automatically designing optimal architectures
-2. **Few-Shot Learning**: Learning from minimal examples
-3. **Neuromorphic Computing**: Hardware designed to mimic brain structures
-4. **Quantum Neural Networks**: Leveraging quantum computing for AI
+1. Neural Architecture Search (NAS): Automatically designing optimal architectures
+2. Few-Shot Learning: Learning from minimal examples
+3. Neuromorphic Computing: Hardware designed to mimic brain structures
+4. Quantum Neural Networks: Leveraging quantum computing for AI
 
 ### Ethical Considerations
 
@@ -293,10 +290,10 @@ Your API might start with a handful of users, but what happens when you have tho
 REST (Representational State Transfer) remains the gold standard for API design:
 
 **Key Principles:**
-- **Stateless**: Each request contains all necessary information
-- **Resource-Based**: URLs represent resources, not actions
-- **HTTP Methods**: Use GET, POST, PUT, DELETE appropriately
-- **Status Codes**: Communicate outcomes clearly
+- Stateless: Each request contains all necessary information
+- Resource-Based: URLs represent resources, not actions
+- HTTP Methods: Use GET, POST, PUT, DELETE appropriately
+- Status Codes: Communicate outcomes clearly
 
 **Example:**
 \`\`\`
@@ -381,9 +378,9 @@ app.listen(3000);
 Reduce database load and improve response times:
 
 **Strategies:**
-- **Redis**: In-memory caching for frequently accessed data
-- **CDN**: Cache static assets and API responses geographically
-- **HTTP Caching**: Use ETags and Cache-Control headers
+- Redis: In-memory caching for frequently accessed data
+- CDN: Cache static assets and API responses geographically
+- HTTP Caching: Use ETags and Cache-Control headers
 
 **Example with Redis:**
 \`\`\`python
@@ -441,10 +438,10 @@ async def list_users(skip: int = 0, limit: int = 100):
 
 Distribute traffic across multiple servers:
 
-- **Nginx**: Reverse proxy and load balancer
-- **AWS ELB/ALB**: Cloud-based load balancing
-- **Round-robin**: Simple distribution strategy
-- **Least connections**: Route to least busy server
+- Nginx: Reverse proxy and load balancer
+- AWS ELB/ALB: Cloud-based load balancing
+- Round-robin: Simple distribution strategy
+- Least connections: Route to least busy server
 
 ### 4. Async Processing
 
@@ -475,7 +472,7 @@ async def create_user(user: User):
 
 ### 1. Authentication & Authorization
 
-**JWT Tokens**: Stateless authentication
+JWT Tokens: Stateless authentication
 \`\`\`python
 from fastapi.security import HTTPBearer
 import jwt
@@ -569,10 +566,10 @@ async def health_check():
 
 Great APIs have great documentation:
 
-- **OpenAPI/Swagger**: Auto-generated, interactive docs
-- **Examples**: Provide request/response examples
-- **Error Codes**: Document all possible errors
-- **Changelog**: Track API changes and deprecations
+- OpenAPI/Swagger: Auto-generated, interactive docs
+- Examples: Provide request/response examples
+- Error Codes: Document all possible errors
+- Changelog: Track API changes and deprecations
 
 ## Conclusion
 
@@ -580,7 +577,7 @@ Building scalable APIs is both an art and a science. By following these best pra
 
 Remember: **Start simple, optimize as needed, and always measure before scaling.** The best API is one that solves user needs reliably and efficiently.
 
-Happy coding! 🚀
+Happy coding! 
         `,
         tags: ['API Development', 'Python', 'Node.js', 'Scalability', 'Backend'],
     },
@@ -1002,10 +999,10 @@ async def monitored_generate(prompt: str):
 
 ### Emerging Patterns
 
-1. **Multi-Modal Integration**: Combining text, image, and audio processing
-2. **Federated Learning**: Training on distributed data
-3. **On-Device LLMs**: Running models on edge devices
-4. **Constitutional AI**: Built-in safety and alignment
+1. Multi-Modal Integration: Combining text, image, and audio processing
+2. Federated Learning: Training on distributed data
+3. On-Device LLMs: Running models on edge devices
+4. Constitutional AI: Built-in safety and alignment
 
 ### Research Areas
 

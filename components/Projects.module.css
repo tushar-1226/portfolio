@@ -1,6 +1,6 @@
 .projects {
     padding: var(--spacing-2xl) 0;
-    background-color: var(--color-black);
+    background-color: var(--bg-primary);
 }
 
 .container {
@@ -23,17 +23,17 @@
 }
 
 .card {
-    background: linear-gradient(135deg, var(--color-gray-900) 0%, var(--color-gray-800) 100%);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
     border-radius: var(--radius-xl);
     padding: 2rem;
-    border: 1px solid var(--color-gray-800);
+    border: 1px solid var(--border-color);
     transition: all var(--transition-base);
     cursor: pointer;
 }
 
 .card:hover {
-    border-color: var(--color-gray-700);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: var(--text-tertiary);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .cardContent {
@@ -45,12 +45,12 @@
 .projectTitle {
     font-size: var(--font-size-2xl);
     font-weight: 600;
-    color: var(--color-white);
+    color: var(--text-primary);
 }
 
 .description {
     font-size: var(--font-size-base);
-    color: var(--color-gray-400);
+    color: var(--text-secondary);
     line-height: 1.6;
     flex-grow: 1;
 }
@@ -68,18 +68,18 @@
     align-items: center;
     justify-content: center;
     padding: 0.75rem;
-    background-color: var(--color-gray-800);
-    border: 1px solid var(--color-gray-700);
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
-    color: var(--color-gray-300);
+    color: var(--text-secondary);
     cursor: pointer;
     transition: all var(--transition-fast);
 }
 
 .techIcon:hover {
-    background-color: var(--color-gray-700);
-    border-color: var(--color-gray-600);
-    color: var(--color-white);
+    background-color: var(--bg-primary);
+    border-color: var(--text-tertiary);
+    color: var(--text-primary);
 }
 
 .techTooltip {
@@ -87,8 +87,8 @@
     bottom: 100%;
     left: 50%;
     transform: translateX(-50%) translateY(-8px);
-    background-color: var(--color-gray-900);
-    color: var(--color-white);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
     padding: 0.5rem 0.75rem;
     border-radius: var(--radius-sm);
     font-size: var(--font-size-xs);
@@ -97,7 +97,8 @@
     pointer-events: none;
     transition: opacity var(--transition-fast);
     z-index: 10;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
 }
 
 .techTooltip::after {
@@ -107,7 +108,7 @@
     left: 50%;
     transform: translateX(-50%);
     border: 5px solid transparent;
-    border-top-color: var(--color-gray-900);
+    border-top-color: var(--bg-secondary);
 }
 
 .techIcon:hover .techTooltip {
@@ -118,7 +119,7 @@
     display: flex;
     gap: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid var(--color-gray-800);
+    border-top: 1px solid var(--border-color);
 }
 
 .link {
@@ -127,9 +128,9 @@
     gap: 0.5rem;
     padding: 0.75rem 1.5rem;
     background-color: transparent;
-    border: 1px solid var(--color-gray-700);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
-    color: var(--color-gray-300);
+    color: var(--text-secondary);
     font-size: var(--font-size-sm);
     font-weight: 500;
     transition: all var(--transition-fast);
@@ -137,9 +138,9 @@
 }
 
 .link:hover {
-    background-color: var(--color-white);
-    color: var(--color-black);
-    border-color: var(--color-white);
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    border-color: var(--text-primary);
 }
 
 /* Filter Container */
@@ -154,9 +155,9 @@
 .filterButton {
     padding: 0.75rem 1.5rem;
     background-color: transparent;
-    border: 1px solid var(--color-gray-700);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
-    color: var(--color-gray-300);
+    color: var(--text-secondary);
     font-size: var(--font-size-sm);
     font-weight: 500;
     cursor: pointer;
@@ -164,14 +165,14 @@
 }
 
 .filterButton:hover {
-    border-color: var(--color-gray-500);
-    color: var(--color-white);
+    border-color: var(--text-tertiary);
+    color: var(--text-primary);
 }
 
 .filterButton.active {
-    background-color: var(--color-white);
-    color: var(--color-black);
-    border-color: var(--color-white);
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    border-color: var(--text-primary);
 }
 
 /* Featured Card Styling */

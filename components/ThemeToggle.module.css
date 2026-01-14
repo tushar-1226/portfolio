@@ -1,0 +1,35 @@
+.themeToggle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.themeToggle:hover {
+    background-color: var(--bg-tertiary);
+    border-color: var(--text-secondary);
+    transform: scale(1.05);
+}
+
+.icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+    .themeToggle {
+        width: 36px;
+        height: 36px;
+    }
+}

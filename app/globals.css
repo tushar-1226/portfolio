@@ -52,6 +52,39 @@
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  /* Theme Colors (default: dark) */
+  --bg-primary: var(--color-black);
+  --bg-secondary: var(--color-gray-900);
+  --bg-tertiary: var(--color-gray-800);
+  --text-primary: var(--color-white);
+  --text-secondary: var(--color-gray-400);
+  --text-tertiary: var(--color-gray-500);
+  --border-color: var(--color-gray-700);
+  --accent-primary: var(--color-white);
+  --accent-secondary: var(--color-gray-400);
+}
+
+/* Light Theme - Sophisticated Grey/Black Aesthetic */
+[data-theme='light'] {
+  --bg-primary: #f8f8f8;
+  /* Soft grey instead of pure white */
+  --bg-secondary: #e8e8e8;
+  /* Darker grey for contrast */
+  --bg-tertiary: #d8d8d8;
+  /* Even darker grey for depth */
+  --text-primary: #1a1a1a;
+  /* Near black for excellent readability */
+  --text-secondary: #525252;
+  /* Medium grey for secondary text */
+  --text-tertiary: #737373;
+  /* Lighter grey for tertiary text */
+  --border-color: #d4d4d4;
+  /* Subtle borders */
+  --accent-primary: #262626;
+  /* Dark accent for buttons/highlights */
+  --accent-secondary: #525252;
+  /* Medium accent */
 }
 
 * {
@@ -66,36 +99,37 @@ html {
 
 body {
   font-family: 'Didot', 'Bodoni MT', 'Bodoni 72', 'Playfair Display', 'Georgia', 'Times New Roman', serif;
-  background-color: var(--color-black);
-  color: var(--color-white);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar - Theme Aware */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-gray-900);
+  background: var(--bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-gray-700);
+  background: var(--border-color);
   border-radius: var(--radius-sm);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-gray-600);
+  background: var(--text-secondary);
 }
 
-/* Selection */
+/* Selection - Theme Aware */
 ::selection {
-  background-color: var(--color-white);
-  color: var(--color-black);
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
 }
 
 /* Typography Utilities */
@@ -238,9 +272,9 @@ button {
   }
 }
 
-/* Gradient Text Effect */
+/* Gradient Text Effect - Theme Aware */
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-white) 0%, var(--color-gray-400) 100%);
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

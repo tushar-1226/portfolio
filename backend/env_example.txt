@@ -3,3 +3,8 @@
 
 GMAIL_USER=tusharrockey1@gmail.com
 GMAIL_APP_PASSWORD=your_16_character_app_password_here
+
+# Optional: WhatsApp Business API configuration
+# Only needed if you want to send automated WhatsApp messages
+# WHATSAPP_API_URL=https://your-whatsapp-api-endpoint.com/messages
+# WHATSAPP_API_TOKEN=your_whatsapp_api_token_here

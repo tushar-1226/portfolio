@@ -5,8 +5,93 @@
     justify-content: center;
     position: relative;
     padding: 8rem 0 4rem;
-    /* Increased top padding to account for navbar */
-    background: linear-gradient(180deg, var(--color-black) 0%, var(--color-gray-900) 100%);
+    overflow: hidden;
+    background: var(--bg-primary);
+    transition: background-color 0.3s ease;
+}
+
+/* Dark theme specific gradients */
+[data-theme='dark'] .hero {
+    background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+        linear-gradient(180deg, var(--color-black) 0%, var(--color-gray-900) 100%);
+}
+
+/* Light theme specific gradients */
+[data-theme='light'] .hero {
+    background: radial-gradient(ellipse at top, rgba(0, 0, 0, 0.03) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom, rgba(0, 0, 0, 0.02) 0%, transparent 50%),
+        linear-gradient(180deg, #f8f8f8 0%, #e8e8e8 100%);
+}
+
+/* Animated gradient orbs - Dark theme */
+[data-theme='dark'] .gradientOrb1 {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+    top: -200px;
+    right: -100px;
+    filter: blur(80px);
+    animation: float 20s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Animated gradient orbs - Light theme */
+[data-theme='light'] .gradientOrb1 {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.04) 0%, transparent 70%);
+    top: -200px;
+    right: -100px;
+    filter: blur(80px);
+    animation: float 20s ease-in-out infinite;
+    pointer-events: none;
+}
+
+[data-theme='dark'] .gradientOrb2 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 70%);
+    bottom: -150px;
+    left: -100px;
+    filter: blur(80px);
+    animation: float 25s ease-in-out infinite reverse;
+    pointer-events: none;
+}
+
+[data-theme='light'] .gradientOrb2 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.03) 0%, transparent 70%);
+    bottom: -150px;
+    left: -100px;
+    filter: blur(80px);
+    animation: float 25s ease-in-out infinite reverse;
+    pointer-events: none;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
 }
 
 .container {
@@ -14,13 +99,15 @@
     margin: 0 auto;
     padding: 0 var(--spacing-md);
     text-align: center;
+    position: relative;
+    z-index: 10;
 }
 
 .title {
     font-size: var(--font-size-2xl);
     font-weight: 400;
     margin-bottom: 1rem;
-    color: var(--color-gray-400);
+    color: var(--text-secondary);
 }
 
 .name {
@@ -33,14 +120,14 @@
 
 .subtitle {
     font-size: var(--font-size-xl);
-    color: var(--color-gray-400);
+    color: var(--text-secondary);
     margin-bottom: 1rem;
     font-weight: 500;
 }
 
 .description {
     font-size: var(--font-size-lg);
-    color: var(--color-gray-500);
+    color: var(--text-tertiary);
     max-width: 600px;
     margin: 0 auto 3rem;
     line-height: 1.6;
@@ -55,37 +142,37 @@
 
 .primaryButton {
     padding: 1rem 2.5rem;
-    background-color: var(--color-white);
-    color: var(--color-black);
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
     font-size: var(--font-size-base);
     font-weight: 600;
     border-radius: var(--radius-lg);
     cursor: pointer;
     transition: all var(--transition-base);
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .primaryButton:hover {
-    background-color: var(--color-gray-200);
+    background-color: var(--accent-primary);
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
 .secondaryButton {
     padding: 1rem 2.5rem;
     background-color: transparent;
-    color: var(--color-white);
+    color: var(--text-primary);
     font-size: var(--font-size-base);
     font-weight: 600;
-    border: 2px solid var(--color-gray-700);
+    border: 2px solid var(--border-color);
     border-radius: var(--radius-lg);
     cursor: pointer;
     transition: all var(--transition-base);
 }
 
 .secondaryButton:hover {
-    border-color: var(--color-white);
-    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--text-primary);
+    background-color: var(--bg-secondary);
     transform: translateY(-2px);
 }
 
@@ -94,7 +181,7 @@
     bottom: 3rem;
     left: 50%;
     transform: translateX(-50%);
-    color: var(--color-gray-500);
+    color: var(--text-tertiary);
     cursor: pointer;
 }
 

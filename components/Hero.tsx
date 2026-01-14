@@ -1,20 +1,41 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { HiArrowDown } from 'react-icons/hi';
 import { toast } from 'sonner';
+import { useState, useEffect } from 'react';
 import { staggerContainer, staggerItem } from '@/utils/animations';
+import ParticleField from './ParticleField';
 import styles from './Hero.module.css';
 
 export default function Hero() {
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const { scrollY } = useScroll();
+
+    // Parallax transforms
+    const y1 = useTransform(scrollY, [0, 500], [0, 150]);
+    const y2 = useTransform(scrollY, [0, 500], [0, -100]);
+    const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+
+    // Mouse parallax effect
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            setMousePosition({
+                x: (e.clientX - window.innerWidth / 2) / 50,
+                y: (e.clientY - window.innerHeight / 2) / 50,
+            });
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+
     const handleResumeDownload = () => {
-        // Trigger the download
         const link = document.createElement('a');
         link.href = '/resume.pdf';
         link.download = 'Tushar_Kumar_Resume.pdf';
         link.click();
 
-        // Show success toast
         toast.success('Resume downloaded successfully.', {
             description: 'Thank you for your interest!',
             duration: 3000,
@@ -23,25 +44,51 @@ export default function Hero() {
 
     return (
         <section id="hero" className={styles.hero}>
+            {/* Animated gradient orbs */}
+            <motion.div
+                className={styles.gradientOrb1}
+                style={{
+                    x: mousePosition.x * 2,
+                    y: mousePosition.y * 2,
+                }}
+            />
+            <motion.div
+                className={styles.gradientOrb2}
+                style={{
+                    x: mousePosition.x * -1.5,
+                    y: mousePosition.y * -1.5,
+                }}
+            />
+
+            {/* Particle field */}
+            <ParticleField />
+
             <motion.div
                 className={styles.container}
                 variants={staggerContainer}
                 initial="hidden"
                 animate="visible"
+                style={{ opacity }}
             >
-                <motion.h1 className={styles.title} variants={staggerItem}>
-                    <span className="gradient-text">Hello, I'm</span>
-                </motion.h1>
-                <motion.h2 className={styles.name} variants={staggerItem}>
-                    Tushar
-                </motion.h2>
-                <motion.p className={styles.subtitle} variants={staggerItem}>
-                    Python Backend Engineer | AI/ML Enthusiast | Open Source Contributor
-                </motion.p>
-                <motion.p className={styles.description} variants={staggerItem}>
-                    Artificial Intelligence, Machine Learning, and Algorithm Development
-                </motion.p>
-
+                <motion.div
+                    style={{
+                        x: mousePosition.x * -0.5,
+                        y: mousePosition.y * -0.5,
+                    }}
+                >
+                    <motion.h1 className={styles.title} variants={staggerItem}>
+                        <span className="gradient-text">Hello, I'm</span>
+                    </motion.h1>
+                    <motion.h2 className={styles.name} variants={staggerItem}>
+                        Tushar
+                    </motion.h2>
+                    <motion.p className={styles.subtitle} variants={staggerItem}>
+                        Python Backend Engineer | AI/ML Enthusiast | Open Source Contributor
+                    </motion.p>
+                    <motion.p className={styles.description} variants={staggerItem}>
+                        Artificial Intelligence, Machine Learning, and Algorithm Development
+                    </motion.p>
+                </motion.div>
 
                 <motion.div className={styles.cta} variants={staggerItem}>
                     <motion.button
@@ -88,6 +135,7 @@ export default function Hero() {
                         repeat: Infinity,
                         repeatType: 'reverse',
                     }}
+                    style={{ y: y2 }}
                 >
                     <HiArrowDown size={24} />
                 </motion.div>

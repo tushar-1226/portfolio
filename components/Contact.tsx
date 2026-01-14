@@ -5,15 +5,19 @@ import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { fadeInUp, fadeInLeft, fadeInRight } from '@/utils/animations';
 import { HiMail, HiLocationMarker } from 'react-icons/hi';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import styles from './Contact.module.css';
 
+type ContactMethod = 'email' | 'whatsapp';
+
 export default function Contact() {
     const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+    const [contactMethod, setContactMethod] = useState<ContactMethod>('email');
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        phone: '',
         message: '',
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -31,29 +35,54 @@ export default function Contact() {
         setSubmitStatus('idle');
 
         try {
-            // Try backend first, then fall back to Next.js API
-            let response = await fetch('http://localhost:5000/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            }).catch(() => null);
+            if (contactMethod === 'whatsapp') {
+                // WhatsApp redirect with pre-filled message
+                const phoneNumber = '917668839824'; // Replace with your WhatsApp number
+                const text = `Hello! I'm ${formData.name}.\n\n${formData.message}\n\nYou can reach me at: ${formData.email || formData.phone}`;
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+                window.open(whatsappUrl, '_blank');
+                
+                setSubmitStatus('success');
+                setFormData({ name: '', email: '', phone: '', message: '' });
+                setTimeout(() => setSubmitStatus('idle'), 5000);
+                setIsSubmitting(false);
+                return;
+            }
 
-            // If backend is not available, try Next.js API
+            // Email submission - Try backend first, then fall back to Next.js API
+            // Only try backend in development
+            let response = null;
+            
+            if (process.env.NODE_ENV === 'development') {
+                response = await fetch('http://localhost:5000/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        ...formData,
+                        method: contactMethod,
+                    }),
+                }).catch(() => null);
+            }
+
+            // If backend is not available or in production, use Next.js API
             if (!response) {
                 response = await fetch('/api/contact', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(formData),
+                    body: JSON.stringify({
+                        ...formData,
+                        method: contactMethod,
+                    }),
                 });
             }
 
             if (response && response.ok) {
                 setSubmitStatus('success');
-                setFormData({ name: '', email: '', message: '' });
+                setFormData({ name: '', email: '', phone: '', message: '' });
                 setTimeout(() => setSubmitStatus('idle'), 5000);
             } else {
                 setSubmitStatus('error');
@@ -94,7 +123,7 @@ export default function Contact() {
                         <div className={styles.contactDetails}>
                             <div className={styles.contactItem}>
                                 <HiMail size={24} />
-                                <span>tusharrockey1@gmail.com</span>
+                                <span>rockeytushar17@gmail.com</span>
                             </div>
                             <div className={styles.contactItem}>
                                 <HiLocationMarker size={24} />
@@ -137,6 +166,26 @@ export default function Contact() {
                         animate={isVisible ? 'visible' : 'hidden'}
                         onSubmit={handleSubmit}
                     >
+                        {/* Contact Method Toggle */}
+                        <div className={styles.toggleContainer}>
+                            <button
+                                type="button"
+                                className={`${styles.toggleButton} ${contactMethod === 'email' ? styles.active : ''}`}
+                                onClick={() => setContactMethod('email')}
+                            >
+                                <HiMail size={20} />
+                                <span>Email</span>
+                            </button>
+                            <button
+                                type="button"
+                                className={`${styles.toggleButton} ${contactMethod === 'whatsapp' ? styles.active : ''}`}
+                                onClick={() => setContactMethod('whatsapp')}
+                            >
+                                <FaWhatsapp size={20} />
+                                <span>WhatsApp</span>
+                            </button>
+                        </div>
+
                         <div className={styles.formGroup}>
                             <label htmlFor="name" className={styles.label}>
                                 Name
@@ -153,21 +202,38 @@ export default function Contact() {
                             />
                         </div>
 
-                        <div className={styles.formGroup}>
-                            <label htmlFor="email" className={styles.label}>
-                                Email
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                required
-                                className={styles.input}
-                                placeholder="your.email@example.com"
-                            />
-                        </div>
+                        {contactMethod === 'email' ? (
+                            <div className={styles.formGroup}>
+                                <label htmlFor="email" className={styles.label}>
+                                    Email
+                                </label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    required
+                                    className={styles.input}
+                                    placeholder="your.email@example.com"
+                                />
+                            </div>
+                        ) : (
+                            <div className={styles.formGroup}>
+                                <label htmlFor="phone" className={styles.label}>
+                                    Phone Number (Optional)
+                                </label>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    value={formData.phone}
+                                    onChange={handleChange}
+                                    className={styles.input}
+                                    placeholder="+91 1234567890"
+                                />
+                            </div>
+                        )}
 
                         <div className={styles.formGroup}>
                             <label htmlFor="message" className={styles.label}>
@@ -192,7 +258,10 @@ export default function Contact() {
                             whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                             disabled={isSubmitting}
                         >
-                            {isSubmitting ? 'Sending...' : 'Send Message'}
+                            {isSubmitting 
+                                ? (contactMethod === 'whatsapp' ? 'Opening WhatsApp...' : 'Sending...') 
+                                : (contactMethod === 'whatsapp' ? 'Continue to WhatsApp' : 'Send Message')
+                            }
                         </motion.button>
 
                         {submitStatus === 'success' && (
@@ -201,7 +270,9 @@ export default function Contact() {
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                             >
-                                ✓ Message sent successfully! I'll get back to you soon.
+                                ✓ {contactMethod === 'whatsapp' 
+                                    ? 'WhatsApp opened! Continue the conversation there.' 
+                                    : "Message sent successfully! I'll get back to you soon."}
                             </motion.p>
                         )}
                         {submitStatus === 'error' && (
@@ -210,7 +281,9 @@ export default function Contact() {
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                             >
-                                ✗ Failed to send. Please email tusharrockey1@gmail.com directly.
+                                ✗ Failed to send. Please {contactMethod === 'whatsapp' 
+                                    ? 'contact via WhatsApp at +91 7668839824' 
+                                    : 'email rockeytushar17@gmail.com directly'}.
                             </motion.p>
                         )}
                     </motion.form>

@@ -3,12 +3,28 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
     try {
-        const { name, email, message } = await request.json();
+        const { name, email, phone, message, method } = await request.json();
 
         // Basic validation
-        if (!name || !email || !message) {
+        if (!name || !message) {
             return NextResponse.json(
-                { error: 'All fields are required' },
+                { error: 'Name and message are required' },
+                { status: 400 }
+            );
+        }
+
+        // If method is WhatsApp, just return success (handled on frontend)
+        if (method === 'whatsapp') {
+            return NextResponse.json({ 
+                success: true, 
+                message: 'WhatsApp redirect initiated' 
+            }, { status: 200 });
+        }
+
+        // Email validation for email method
+        if (!email) {
+            return NextResponse.json(
+                { error: 'Email is required' },
                 { status: 400 }
             );
         }
@@ -27,7 +43,7 @@ export async function POST(request: Request) {
         // Send email using Resend
         const { data, error } = await resend.emails.send({
             from: 'Portfolio Contact <onboarding@resend.dev>',
-            to: 'tusharrockey1@gmail.com',
+            to: 'rockeytushar17@gmail.com',
             replyTo: email,
             subject: `Portfolio Contact from ${name}`,
             html: `
@@ -36,10 +52,11 @@ export async function POST(request: Request) {
           <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <p style="margin: 10px 0;"><strong>Name:</strong> ${name}</p>
             <p style="margin: 10px 0;"><strong>Email:</strong> ${email}</p>
+            ${phone ? `<p style="margin: 10px 0;"><strong>Phone:</strong> ${phone}</p>` : ''}
             <p style="margin: 10px 0;"><strong>Message:</strong></p>
             <p style="background: white; padding: 15px; border-radius: 4px; white-space: pre-wrap;">${message}</p>
           </div>
-          <p style="color: #666; font-size: 12px;">This email was sent from your portfolio contact form.</p>
+          <p style="color: #666; font-size: 12px;">This email was sent from your portfolio contact form via Email method.</p>
         </div>
       `,
         });
