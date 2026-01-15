@@ -1,9 +1,9 @@
 # Vercel Deployment Checklist
 
-## ✅ Pre-Deployment Checklist
+##  Pre-Deployment Checklist
 
 ### 1. Build Status
-- [x] Production build works: `npm run build` ✅
+- [x] Production build works: `npm run build` 
 - [x] No build errors
 - [x] TypeScript types valid
 - [x] ESLint warnings (minor, non-blocking)
@@ -28,7 +28,7 @@
 
 ---
 
-## 🚀 Vercel Deployment Steps
+##  Vercel Deployment Steps
 
 ### Method 1: Deploy via Vercel Dashboard (Recommended)
 
@@ -51,7 +51,7 @@
    - Go to: https://vercel.com/new
    - Click "Import Project"
    - Select your GitHub repository
-   - Vercel auto-detects Next.js settings ✅
+   - Vercel auto-detects Next.js settings 
 
 3. **Add Environment Variables:**
    - In Vercel project settings
@@ -64,7 +64,7 @@
 4. **Deploy:**
    - Click "Deploy"
    - Wait 2-3 minutes
-   - Your site will be live! 🎉
+   - Your site will be live! 
 
 ### Method 2: Deploy via Vercel CLI
 
@@ -100,7 +100,7 @@ vercel env add RESEND_API_KEY
 
 ---
 
-## 🔍 Post-Deployment Verification
+##  Post-Deployment Verification
 
 ### 1. Check Deployment Status
 - Visit your Vercel dashboard
@@ -128,23 +128,23 @@ vercel env add RESEND_API_KEY
 
 ---
 
-## ⚙️ Vercel Auto-Configuration
+##  Vercel Auto-Configuration
 
 Vercel automatically handles:
-- ✅ Framework Detection (Next.js)
-- ✅ Build Command: `npm run build`
-- ✅ Output Directory: `.next`
-- ✅ Install Command: `npm install`
-- ✅ Node.js version: Auto-detected
-- ✅ Environment variables from `.env.local`
-- ✅ Serverless Functions (API routes)
-- ✅ Edge Network CDN
-- ✅ Automatic HTTPS
-- ✅ Custom domain support
+-  Framework Detection (Next.js)
+-  Build Command: `npm run build`
+-  Output Directory: `.next`
+-  Install Command: `npm install`
+-  Node.js version: Auto-detected
+-  Environment variables from `.env.local`
+-  Serverless Functions (API routes)
+-  Edge Network CDN
+-  Automatic HTTPS
+-  Custom domain support
 
 ---
 
-## 🌐 Custom Domain Setup (Optional)
+## Custom Domain Setup (Optional)
 
 1. **Add Domain in Vercel:**
    - Project Settings → Domains
@@ -160,7 +160,7 @@ Vercel automatically handles:
 
 ---
 
-## 🔧 Important Production Settings
+##  Important Production Settings
 
 ### Update Resend for Production
 Currently, emails only go to `rockeytushar17@gmail.com` (free tier).
@@ -186,7 +186,7 @@ export const metadata = {
 
 ---
 
-## 📊 Monitoring & Analytics
+##  Monitoring & Analytics
 
 ### Vercel Analytics (Optional)
 ```bash
@@ -211,7 +211,7 @@ export default function RootLayout({ children }) {
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Build Fails
 - Check build logs in Vercel
@@ -235,28 +235,28 @@ export default function RootLayout({ children }) {
 
 ---
 
-## 📝 What's Deployed
+##  What's Deployed
 
 ### Frontend (Vercel)
-- ✅ Next.js 15 app
-- ✅ Email integration (Resend)
-- ✅ WhatsApp integration
-- ✅ All components & pages
-- ✅ Optimized for production
+-  Next.js 15 app
+-  Email integration (Resend)
+-  WhatsApp integration
+-  All components & pages
+-  Optimized for production
 
 ### Backend (Not Deployed)
-- ⚠️ Python backend (`/backend`) not deployed
+-  Python backend (`/backend`) not deployed
 - Not needed - Next.js API handles everything
 - Only used in local development
 
 ### APIs Available
-- ✅ `/api/contact` - Email/WhatsApp handler
-- ✅ `/sitemap.xml` - SEO sitemap
-- ✅ All other Next.js routes
+-  `/api/contact` - Email/WhatsApp handler
+-  `/sitemap.xml` - SEO sitemap
+-  All other Next.js routes
 
 ---
 
-## 🎯 Quick Deploy Commands
+##  Quick Deploy Commands
 
 ```bash
 # Option 1: Via Vercel CLI
@@ -274,23 +274,23 @@ vercel ls
 
 ---
 
-## ✅ Deployment Ready Status
+##  Deployment Ready Status
 
 **Your portfolio is 100% ready for Vercel deployment!**
 
-- ✅ Build passes
-- ✅ No hardcoded URLs
-- ✅ Environment variables documented
-- ✅ Email integration configured
-- ✅ WhatsApp integration ready
-- ✅ Production optimizations enabled
-- ✅ No backend dependencies needed
+-  Build passes
+-  No hardcoded URLs
+-  Environment variables documented
+-  Email integration configured
+-  WhatsApp integration ready
+-  Production optimizations enabled
+-  No backend dependencies needed
 
-**Just deploy and it will work! 🚀**
+**Just deploy and it will work! **
 
 ---
 
-## 📞 Support & Resources
+##  Support & Resources
 
 - **Vercel Docs**: https://vercel.com/docs
 - **Next.js Deployment**: https://nextjs.org/docs/deployment
@@ -300,4 +300,4 @@ vercel ls
 ---
 
 **Last Updated**: January 14, 2026
-**Status**: ✅ READY TO DEPLOY
+**Status**:  READY TO DEPLOY

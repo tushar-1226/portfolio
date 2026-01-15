@@ -20,6 +20,10 @@ export default function RootLayout({
         {/* DNS Prefetch for faster lookups */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 
+        {/* Favicon */}
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
+
         {/* Preload critical assets */}
         <link
           rel="preload"

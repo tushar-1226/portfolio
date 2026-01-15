@@ -186,26 +186,102 @@
 }
 
 
-/* Mobile Small (320px - 480px) */
-@media (max-width: 480px) {
+/* Mobile Extra Small (320px - 375px) - Very small phones */
+@media (max-width: 375px) {
     .hero {
-        padding: 7rem 0 3rem;
+        padding: 8rem 0 4rem;
         min-height: 100svh;
-        /* Use svh for better mobile support */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        padding: 0 1.25rem;
+        max-width: 100%;
     }
 
     .title {
-        font-size: var(--font-size-lg);
-        margin-bottom: 0.75rem;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .name {
+        font-size: 2.5rem;
+        margin-bottom: 1.25rem;
+        line-height: 1.15;
     }
 
     .subtitle {
-        font-size: var(--font-size-base);
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+        line-height: 1.5;
+        padding: 0 0.5rem;
     }
 
     .description {
-        font-size: var(--font-size-sm);
+        font-size: 0.85rem;
         margin-bottom: 2rem;
+        line-height: 1.6;
+        padding: 0 0.5rem;
+    }
+
+    .cta {
+        flex-direction: column;
+        gap: 0.875rem;
+        align-items: stretch;
+        padding: 0 0.5rem;
+    }
+
+    .primaryButton,
+    .secondaryButton {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        font-size: 0.9rem;
+        min-height: 48px;
+    }
+
+    .scrollIndicator {
+        bottom: 2rem;
+    }
+}
+
+/* Mobile Small (376px - 480px) - Standard small phones */
+@media (min-width: 376px) and (max-width: 480px) {
+    .hero {
+        padding: 8rem 0 4rem;
+        min-height: 100svh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .title {
+        font-size: 1.125rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .name {
+        font-size: 2.75rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        margin-bottom: 0.875rem;
+        line-height: 1.5;
+    }
+
+    .description {
+        font-size: 0.9rem;
+        margin-bottom: 2.25rem;
+        line-height: 1.65;
+        max-width: 90%;
     }
 
     .cta {
@@ -217,43 +293,170 @@
     .primaryButton,
     .secondaryButton {
         width: 100%;
-        padding: 0.875rem 2rem;
-        font-size: var(--font-size-sm);
+        padding: 1rem 2rem;
+        font-size: 0.95rem;
+        min-height: 48px;
     }
 
     .scrollIndicator {
-        bottom: 1.5rem;
+        bottom: 2rem;
     }
 }
 
-/* Mobile Large & Tablets (481px - 768px) */
-@media (min-width: 481px) and (max-width: 768px) {
+/* Mobile Medium (481px - 640px) - Large phones */
+@media (min-width: 481px) and (max-width: 640px) {
     .hero {
-        padding: 5rem 0 3rem;
+        padding: 8rem 0 4rem;
+        min-height: 100vh;
+    }
+
+    .container {
+        padding: 0 2rem;
     }
 
     .title {
-        font-size: var(--font-size-xl);
+        font-size: 1.25rem;
+        margin-bottom: 0.875rem;
+    }
+
+    .name {
+        font-size: 3.25rem;
+        margin-bottom: 1.5rem;
     }
 
     .subtitle {
-        font-size: var(--font-size-lg);
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+        line-height: 1.5;
     }
 
     .description {
-        font-size: var(--font-size-base);
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+        line-height: 1.6;
+        max-width: 85%;
+    }
+
+    .cta {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .primaryButton,
+    .secondaryButton {
+        width: 100%;
+        padding: 1.125rem 2.25rem;
+        font-size: 1rem;
+        min-height: 48px;
+    }
+
+    .scrollIndicator {
+        bottom: 2.5rem;
+    }
+}
+
+/* Tablets Small (641px - 768px) */
+@media (min-width: 641px) and (max-width: 768px) {
+    .hero {
+        padding: 6rem 0 4rem;
+        min-height: 100vh;
+    }
+
+    .container {
+        padding: 0 2.5rem;
+    }
+
+    .title {
+        font-size: 1.375rem;
+        margin-bottom: 1rem;
+    }
+
+    .name {
+        font-size: 3.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+    }
+
+    .description {
+        font-size: 1.0625rem;
+        margin-bottom: 2.75rem;
+        line-height: 1.6;
+        max-width: 80%;
     }
 
     .cta {
         flex-direction: row;
         flex-wrap: wrap;
+        gap: 1.25rem;
         justify-content: center;
     }
 
     .primaryButton,
     .secondaryButton {
-        flex: 1;
-        min-width: 200px;
-        max-width: 250px;
+        flex: 0 1 auto;
+        min-width: 180px;
+        padding: 1.125rem 2.25rem;
+        font-size: 1rem;
+        min-height: 48px;
+    }
+
+    .scrollIndicator {
+        bottom: 2.5rem;
+    }
+}
+
+/* Tablets Large (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero {
+        padding: 6rem 0 4rem;
+    }
+
+    .container {
+        padding: 0 3rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .name {
+        font-size: 4.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.375rem;
+        margin-bottom: 1rem;
+    }
+
+    .description {
+        font-size: 1.125rem;
+        margin-bottom: 3rem;
+        max-width: 75%;
+    }
+
+    .cta {
+        flex-direction: row;
+        gap: 1.5rem;
+        justify-content: center;
+    }
+
+    .primaryButton,
+    .secondaryButton {
+        padding: 1.125rem 2.5rem;
+        font-size: 1rem;
+    }
+
+    .scrollIndicator {
+        bottom: 3rem;
     }
 }
