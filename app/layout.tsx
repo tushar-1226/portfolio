@@ -1,4 +1,5 @@
 import ClientLayout from './ClientLayout';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export { metadata } from './metadata';
 
@@ -36,6 +37,7 @@ export default function RootLayout({
         <ClientLayout>
           {children}
         </ClientLayout>
+        <SpeedInsights />
       </body>
     </html>
   );
