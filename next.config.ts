@@ -17,6 +17,11 @@ const nextConfig: NextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
 
+  // Image optimization configuration
+  images: {
+    qualities: [75, 85, 90, 100],
+  },
+
   // Performance optimizations
   experimental: {
     optimizeCss: true,
