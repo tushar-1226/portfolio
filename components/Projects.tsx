@@ -60,7 +60,7 @@ const projects = [
         description:
             'An advanced real-time Budget Tracker with AI-powered insights and personalized recommendations with real-time data visualization and sentiment analysis.',
         tech: ['Next.js', 'Python', 'SQL'],
-        github: 'https://github.com/tushar-1226/Budget_tracker',
+        github: 'https://github.com/tushar-1226/Clarity_Flow',
         demo: 'https://my-flow-n00a4k00r-tushar-1226s-projects.vercel.app/',
         featured: false,
         category: ['AI/ML', 'Python', 'Web Development'],
