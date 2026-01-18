@@ -139,9 +139,9 @@ def health_check():
 
 if __name__ == '__main__':
     if not SENDER_PASSWORD:
-        print("⚠️  WARNING: GMAIL_APP_PASSWORD not set in .env file!")
+        print(" WARNING: GMAIL_APP_PASSWORD not set in .env file!")
         print("Please create a .env file with your Gmail app password")
     else:
-        print("✅ Email backend running on http://localhost:5000")
+        print(" Email backend running on http://localhost:5000")
     
     app.run(host='0.0.0.0', port=5000, debug=False)

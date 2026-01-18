@@ -6,41 +6,7 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { fadeInUp, staggerContainer, staggerItem } from '@/utils/animations';
 import { HiDocument, HiExternalLink } from 'react-icons/hi';
 import styles from './Blog.module.css';
-
-const blogPosts = [
-    {
-        id: 1,
-        title: 'Getting Started with AI Development',
-        type: 'Blog Post',
-        date: 'Jan 2026',
-        description: 'A comprehensive guide to starting your journey in AI and machine learning development.',
-        color: 'yellow',
-    },
-    {
-        id: 2,
-        title: 'Research: Neural Networks',
-        type: 'Research Paper',
-        date: 'Dec 2025',
-        description: 'Deep dive into neural network architectures and their applications in modern AI systems.',
-        color: 'pink',
-    },
-    {
-        id: 3,
-        title: 'Building Scalable APIs',
-        type: 'Blog Post',
-        date: 'Nov 2025',
-        description: 'Best practices for designing and implementing scalable REST APIs with Python and Node.js.',
-        color: 'blue',
-    },
-    {
-        id: 4,
-        title: 'LLM Integration Patterns',
-        type: 'Research Paper',
-        date: 'Oct 2025',
-        description: 'Exploring different patterns and approaches for integrating Large Language Models in production.',
-        color: 'green',
-    },
-];
+import { blogSummaries } from '@/utils/blogData';
 
 export default function Blog() {
     const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
@@ -72,7 +38,7 @@ export default function Blog() {
                     initial="hidden"
                     animate={isVisible ? 'visible' : 'hidden'}
                 >
-                    {blogPosts.map((post) => (
+                    {blogSummaries.map((post) => (
                         <Link key={post.id} href={`/blog/${post.id}`}>
                             <motion.div
                                 className={`${styles.note} ${styles[post.color]}`}

@@ -13,7 +13,6 @@ export default function Hero() {
     const { scrollY } = useScroll();
 
     // Parallax transforms
-    const y1 = useTransform(scrollY, [0, 500], [0, 150]);
     const y2 = useTransform(scrollY, [0, 500], [0, -100]);
     const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
@@ -83,7 +82,7 @@ export default function Hero() {
                         Tushar
                     </motion.h2>
                     <motion.p className={styles.subtitle} variants={staggerItem}>
-                        Python Backend Engineer | AI/ML Enthusiast | Open Source Contributor
+                        Python Backend Engineer | AI/ML Enthusiast
                     </motion.p>
                     <motion.p className={styles.description} variants={staggerItem}>
                         Artificial Intelligence, Machine Learning, and Algorithm Development
