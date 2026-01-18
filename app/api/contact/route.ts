@@ -31,8 +31,9 @@ export async function POST(request: Request) {
 
         // Check if API key is configured
         if (!process.env.RESEND_API_KEY) {
+            console.error('RESEND_API_KEY is not configured');
             return NextResponse.json(
-                { error: 'Email service not configured. Please contact directly at tusharrockey1@gmail.com' },
+                { error: 'Email service is currently unavailable. Please email rockeytushar17@gmail.com directly.' },
                 { status: 503 }
             );
         }
@@ -63,9 +64,13 @@ export async function POST(request: Request) {
 
         if (error) {
             console.error('Resend error:', error);
-            return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
+            return NextResponse.json({ 
+                error: 'Failed to send email. Please contact rockeytushar17@gmail.com directly.',
+                details: error.message 
+            }, { status: 500 });
         }
 
+        console.log('Email sent successfully:', data);
         return NextResponse.json({ success: true, data }, { status: 200 });
     } catch (error) {
         console.error('Contact form error:', error);

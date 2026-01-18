@@ -85,6 +85,8 @@ export default function Contact() {
                 setFormData({ name: '', email: '', phone: '', message: '' });
                 setTimeout(() => setSubmitStatus('idle'), 5000);
             } else {
+                const errorData = response ? await response.json() : null;
+                console.error('Form submission failed:', errorData);
                 setSubmitStatus('error');
             }
         } catch (error) {
