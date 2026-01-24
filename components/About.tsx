@@ -2,16 +2,32 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { fadeInUp, fadeInLeft, fadeInRight } from '@/utils/animations';
 import AnimatedCounter from './AnimatedCounter';
+import SpaceBackground from './SpaceBackground';
 import styles from './About.module.css';
 
 export default function About() {
     const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            setMousePosition({
+                x: (e.clientX - window.innerWidth / 2) / 50,
+                y: (e.clientY - window.innerHeight / 2) / 50,
+            });
+        };
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
 
     return (
         <section id="about" className={styles.about} ref={ref}>
+            <SpaceBackground layer="back" mousePosition={mousePosition} />
+            <SpaceBackground layer="mid" mousePosition={mousePosition} />
             <div className={styles.container}>
                 <motion.h2
                     className={styles.title}

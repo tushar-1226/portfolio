@@ -1,10 +1,11 @@
 .gallery {
     padding: var(--spacing-2xl) 0;
-    background-color: var(--bg-secondary);
+    background-color: transparent;
     overflow: hidden;
     min-height: 80vh;
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .container {
@@ -105,9 +106,9 @@
 }
 
 .carouselCard.active:hover {
-    border-color: var(--text-tertiary);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2),
-        0 0 40px rgba(128, 128, 128, 0.1);
+    border-color: rgba(220, 20, 60, 0.8);
+    box-shadow: 0 30px 60px rgba(220, 20, 60, 0.3),
+        0 0 40px rgba(220, 20, 60, 0.2);
 }
 
 /* Navigation Buttons */
@@ -175,7 +176,7 @@
 }
 
 .indicatorActive {
-    background: white;
+    background: rgba(220, 20, 60, 0.9);
     width: 32px;
     border-radius: 6px;
 }

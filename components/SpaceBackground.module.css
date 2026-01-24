@@ -1,0 +1,146 @@
+.spaceLayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.back {
+    z-index: 1;
+}
+
+.mid {
+    z-index: 2;
+}
+
+/* Stars - Back Layer */
+.star {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Particles - Mid Layer */
+.particle {
+    position: absolute;
+    background: radial-gradient(circle, rgba(220, 20, 60, 0.9), rgba(255, 36, 0, 0.5));
+    border-radius: 50%;
+    filter: blur(2px);
+    box-shadow:
+        0 0 10px rgba(220, 20, 60, 0.7),
+        0 0 20px rgba(255, 36, 0, 0.5);
+    animation: floatParticle 8s ease-in-out infinite;
+}
+
+@keyframes floatParticle {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.6;
+    }
+
+    25% {
+        transform: translate(10px, -15px) scale(1.1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: translate(-5px, -25px) scale(0.9);
+        opacity: 1;
+    }
+
+    75% {
+        transform: translate(-15px, -10px) scale(1.05);
+        opacity: 0.7;
+    }
+}
+
+/* Constellation Lines - Mid Layer */
+.constellationSvg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.constellationLine {
+    stroke: rgba(220, 20, 60, 0.4);
+    stroke-width: 1;
+    animation: pulseLine 4s ease-in-out infinite;
+}
+
+@keyframes pulseLine {
+
+    0%,
+    100% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Radial Gradient Overlay */
+.radialGradient {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(ellipse at center,
+            rgba(220, 20, 60, 0.06) 0%,
+            rgba(139, 0, 0, 0.04) 30%,
+            transparent 70%);
+    pointer-events: none;
+}
+
+/* Performance optimizations */
+.star,
+.particle {
+    will-change: transform, opacity;
+    transform: translate3d(0, 0, 0);
+    /* Force GPU acceleration */
+}
+
+.spaceLayer {
+    transform: translate3d(0, 0, 0);
+    /* Force GPU acceleration */
+}
+
+/* Disable animations class */
+.noAnimation {
+    animation: none !important;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    .star,
+    .particle,
+    .constellationLine {
+        animation: none;
+    }
+}

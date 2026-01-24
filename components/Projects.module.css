@@ -1,6 +1,7 @@
 .projects {
     padding: var(--spacing-2xl) 0;
-    background-color: var(--bg-primary);
+    background-color: transparent;
+    position: relative;
 }
 
 .container {
@@ -32,8 +33,8 @@
 }
 
 .card:hover {
-    border-color: var(--text-tertiary);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: rgba(220, 20, 60, 0.6);
+    box-shadow: 0 20px 40px rgba(220, 20, 60, 0.2);
 }
 
 .cardContent {
@@ -175,20 +176,20 @@
     border-color: var(--text-primary);
 }
 
-/* Featured Card Styling */
+/* Featured Card Styling - Red Theme */
 .featuredCard {
     position: relative;
     background: linear-gradient(135deg,
-            rgba(255, 215, 0, 0.15) 0%,
-            rgba(255, 193, 7, 0.1) 50%,
-            var(--color-gray-900) 100%);
-    border: 2px solid rgba(255, 215, 0, 0.5);
-    box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2);
+            rgba(220, 20, 60, 0.15) 0%,
+            rgba(255, 36, 0, 0.1) 50%,
+            var(--bg-secondary) 100%);
+    border: 2px solid rgba(220, 20, 60, 0.5);
+    box-shadow: 0 8px 32px rgba(220, 20, 60, 0.3);
 }
 
 .featuredCard:hover {
-    border-color: rgba(255, 215, 0, 0.8);
-    box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
+    border-color: rgba(220, 20, 60, 0.8);
+    box-shadow: 0 20px 60px rgba(220, 20, 60, 0.4);
 }
 
 .featuredBadge {
@@ -199,16 +200,16 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background: linear-gradient(135deg, #FFD700 0%, #FFC107 100%);
-    color: var(--color-black);
+    background: linear-gradient(135deg, #dc143c 0%, #ff2400 100%);
+    color: #ffffff;
     border-radius: var(--radius-md);
     font-size: var(--font-size-xs);
     font-weight: 600;
-    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+    box-shadow: 0 4px 12px rgba(220, 20, 60, 0.5);
 }
 
 .featuredCard .projectTitle {
-    background: linear-gradient(135deg, #FFD700 0%, #FFC107 100%);
+    background: linear-gradient(135deg, #ff2400 0%, #dc143c 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { fadeInUp, staggerContainer, staggerItem } from '@/utils/animations';
@@ -21,6 +21,7 @@ import {
     SiJavascript,
     SiTypescript
 } from 'react-icons/si';
+import SpaceBackground from './SpaceBackground';
 import styles from './Projects.module.css';
 
 // Tech icon mapping
@@ -92,6 +93,18 @@ const projects = [
 export default function Projects() {
     const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
     const [activeFilter, setActiveFilter] = useState('All');
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            setMousePosition({
+                x: (e.clientX - window.innerWidth / 2) / 50,
+                y: (e.clientY - window.innerHeight / 2) / 50,
+            });
+        };
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
 
     const filters = ['All', 'AI/ML', 'Web Development', 'Python'];
 
@@ -106,6 +119,8 @@ export default function Projects() {
 
     return (
         <section id="projects" className={styles.projects} ref={ref}>
+            <SpaceBackground layer="back" mousePosition={mousePosition} />
+            <SpaceBackground layer="mid" mousePosition={mousePosition} />
             <div className={styles.container}>
                 <motion.h2
                     className={styles.title}

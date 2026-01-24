@@ -1,6 +1,6 @@
 .blog {
     padding: var(--spacing-2xl) 0;
-    background-color: var(--bg-primary);
+    background-color: transparent;
     position: relative;
 }
 
@@ -59,21 +59,25 @@
             rgba(0, 0, 0, 0.1) 20px);
 }
 
-/* Sticky Note Colors */
+/* Sticky Note Colors - Red & Black Theme */
 .note.yellow {
-    background: linear-gradient(135deg, #fff9c4 0%, #FFEB3B 100%);
+    background: linear-gradient(135deg, #2a0000 0%, #1a0000 100%);
+    color: #ffffff;
 }
 
 .note.pink {
-    background: linear-gradient(135deg, #f8bbd0 0%, #ff4081 100%);
+    background: linear-gradient(135deg, rgba(220, 20, 60, 0.3) 0%, rgba(139, 0, 0, 0.4) 100%);
+    color: #ffffff;
 }
 
 .note.blue {
-    background: linear-gradient(135deg, #bbdefb 0%, #2196f3 100%);
+    background: linear-gradient(135deg, rgba(255, 36, 0, 0.2) 0%, rgba(220, 20, 60, 0.3) 100%);
+    color: #ffffff;
 }
 
 .note.green {
-    background: linear-gradient(135deg, #c8e6c9 0%, #4caf50 100%);
+    background: linear-gradient(135deg, #1a0000 0%, rgba(139, 0, 0, 0.5) 100%);
+    color: #ffffff;
 }
 
 .notePin {

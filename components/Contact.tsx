@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { fadeInUp, fadeInLeft, fadeInRight } from '@/utils/animations';
@@ -23,11 +23,12 @@ export default function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-    const handleChange = (
+    // Memoize handlers for better performance
+    const handleChange = useCallback((
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
     ) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+        setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -41,7 +42,7 @@ export default function Contact() {
                 const text = `Hello! I'm ${formData.name}.\n\n${formData.message}\n\nYou can reach me at: ${formData.email || formData.phone}`;
                 const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
                 window.open(whatsappUrl, '_blank');
-                
+
                 setSubmitStatus('success');
                 setFormData({ name: '', email: '', phone: '', message: '' });
                 setTimeout(() => setSubmitStatus('idle'), 5000);
@@ -52,7 +53,7 @@ export default function Contact() {
             // Email submission - Try backend first, then fall back to Next.js API
             // Only try backend in development
             let response = null;
-            
+
             if (process.env.NODE_ENV === 'development') {
                 response = await fetch('http://localhost:5000/api/contact', {
                     method: 'POST',
@@ -99,6 +100,7 @@ export default function Contact() {
 
     return (
         <section id="contact" className={styles.contact} ref={ref}>
+            {/* Removed duplicate SpaceBackground - rendered globally */}
             <div className={styles.container}>
                 <motion.h2
                     className={styles.title}
@@ -260,8 +262,8 @@ export default function Contact() {
                             whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                             disabled={isSubmitting}
                         >
-                            {isSubmitting 
-                                ? (contactMethod === 'whatsapp' ? 'Opening WhatsApp...' : 'Sending...') 
+                            {isSubmitting
+                                ? (contactMethod === 'whatsapp' ? 'Opening WhatsApp...' : 'Sending...')
                                 : (contactMethod === 'whatsapp' ? 'Continue to WhatsApp' : 'Send Message')
                             }
                         </motion.button>
@@ -272,8 +274,8 @@ export default function Contact() {
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                             >
-                                ✓ {contactMethod === 'whatsapp' 
-                                    ? 'WhatsApp opened! Continue the conversation there.' 
+                                ✓ {contactMethod === 'whatsapp'
+                                    ? 'WhatsApp opened! Continue the conversation there.'
                                     : "Message sent successfully! I'll get back to you soon."}
                             </motion.p>
                         )}
@@ -283,8 +285,8 @@ export default function Contact() {
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                             >
-                                ✗ Failed to send. Please {contactMethod === 'whatsapp' 
-                                    ? 'contact via WhatsApp at +91 7668839824' 
+                                ✗ Failed to send. Please {contactMethod === 'whatsapp'
+                                    ? 'contact via WhatsApp at +91 7668839824'
                                     : 'email rockeytushar17@gmail.com directly'}.
                             </motion.p>
                         )}

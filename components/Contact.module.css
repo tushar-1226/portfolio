@@ -1,6 +1,7 @@
 .contact {
     padding: var(--spacing-2xl) 0;
-    background-color: var(--bg-secondary);
+    background-color: transparent;
+    position: relative;
 }
 
 .container {
@@ -75,9 +76,9 @@
 }
 
 .socialLink:hover {
-    background-color: var(--text-primary);
-    color: var(--bg-primary);
-    border-color: var(--text-primary);
+    background-color: rgba(220, 20, 60, 0.9);
+    color: #ffffff;
+    border-color: rgba(220, 20, 60, 0.9);
     transform: translateY(-3px);
 }
 
@@ -122,10 +123,10 @@
 }
 
 .toggleButton.active {
-    background-color: var(--text-primary);
-    color: var(--bg-primary);
-    border-color: var(--text-primary);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background-color: rgba(220, 20, 60, 0.9);
+    color: #ffffff;
+    border-color: rgba(220, 20, 60, 0.9);
+    box-shadow: 0 2px 8px rgba(220, 20, 60, 0.3);
 }
 
 .formGroup {
@@ -156,7 +157,7 @@
 .input:focus,
 .textarea:focus {
     outline: none;
-    border-color: var(--text-primary);
+    border-color: rgba(220, 20, 60, 0.8);
     background-color: var(--bg-primary);
 }
 
@@ -184,9 +185,9 @@
 }
 
 .submitButton:hover {
-    background-color: var(--accent-primary);
+    background-color: rgba(220, 20, 60, 0.9);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(220, 20, 60, 0.4);
 }
 
 .submitButton:disabled {

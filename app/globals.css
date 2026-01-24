@@ -3,18 +3,21 @@
 @tailwind utilities;
 
 :root {
-  /* Apple-inspired Color Palette - Black, White, Gray only */
+  /* Red & Black Color Palette */
   --color-black: #000000;
   --color-white: #ffffff;
-  --color-gray-900: #171717;
-  --color-gray-800: #262626;
-  --color-gray-700: #404040;
-  --color-gray-600: #525252;
-  --color-gray-500: #737373;
-  --color-gray-400: #a3a3a3;
-  --color-gray-300: #d4d4d4;
-  --color-gray-200: #e5e5e5;
-  --color-gray-100: #f5f5f5;
+  --color-red-900: #7f1d1d;
+  --color-red-800: #991b1b;
+  --color-red-700: #b91c1c;
+  --color-red-600: #dc2626;
+  --color-red-500: #ef4444;
+  --color-red-400: #f87171;
+  --color-red-300: #fca5a5;
+  --color-red-200: #fecaca;
+  --color-crimson: #dc143c;
+  --color-scarlet: #ff2400;
+  --color-blood-red: #8b0000;
+  --color-dark-red: #8b0000;
 
   /* Spacing */
   --spacing-xs: 0.5rem;
@@ -48,43 +51,43 @@
   --transition-slow: 500ms ease-in-out;
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 1px 2px 0 rgba(220, 20, 60, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(220, 20, 60, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(220, 20, 60, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(220, 20, 60, 0.4);
 
-  /* Theme Colors (default: dark) */
-  --bg-primary: var(--color-black);
-  --bg-secondary: var(--color-gray-900);
-  --bg-tertiary: var(--color-gray-800);
-  --text-primary: var(--color-white);
-  --text-secondary: var(--color-gray-400);
-  --text-tertiary: var(--color-gray-500);
-  --border-color: var(--color-gray-700);
-  --accent-primary: var(--color-white);
-  --accent-secondary: var(--color-gray-400);
+  /* Theme Colors - Red & Black */
+  --bg-primary: #000000;
+  --bg-secondary: #0a0000;
+  --bg-tertiary: #1a0000;
+  --text-primary: #ffffff;
+  --text-secondary: #fca5a5;
+  --text-tertiary: #f87171;
+  --border-color: #dc2626;
+  --accent-primary: #dc143c;
+  --accent-secondary: #ef4444;
 }
 
-/* Light Theme - Sophisticated Grey/Black Aesthetic */
+/* Light Theme - Red & White Aesthetic */
 [data-theme='light'] {
-  --bg-primary: #f8f8f8;
-  /* Soft grey instead of pure white */
-  --bg-secondary: #e8e8e8;
-  /* Darker grey for contrast */
-  --bg-tertiary: #d8d8d8;
-  /* Even darker grey for depth */
-  --text-primary: #1a1a1a;
-  /* Near black for excellent readability */
-  --text-secondary: #525252;
-  /* Medium grey for secondary text */
-  --text-tertiary: #737373;
-  /* Lighter grey for tertiary text */
-  --border-color: #d4d4d4;
-  /* Subtle borders */
-  --accent-primary: #262626;
-  /* Dark accent for buttons/highlights */
-  --accent-secondary: #525252;
-  /* Medium accent */
+  --bg-primary: #fef2f2;
+  /* Very light red tint */
+  --bg-secondary: #fee2e2;
+  /* Light red background */
+  --bg-tertiary: #fecaca;
+  /* Soft red for depth */
+  --text-primary: #1a0000;
+  /* Near black with red tint */
+  --text-secondary: #991b1b;
+  /* Dark red for secondary text */
+  --text-tertiary: #b91c1c;
+  /* Medium red for tertiary text */
+  --border-color: #fca5a5;
+  /* Light red borders */
+  --accent-primary: #dc143c;
+  /* Crimson accent */
+  --accent-secondary: #ef4444;
+  /* Bright red accent */
 }
 
 * {
@@ -274,9 +277,9 @@ button {
   }
 }
 
-/* Gradient Text Effect - Theme Aware */
+/* Gradient Text Effect - Red Theme */
 .gradient-text {
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+  background: linear-gradient(135deg, #ff2400 0%, #dc143c 50%, #8b0000 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

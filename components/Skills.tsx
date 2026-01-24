@@ -1,5 +1,6 @@
 'use client';
 
+import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { fadeInUp, staggerContainer, staggerItem } from '@/utils/animations';
@@ -90,13 +91,15 @@ const skillCategories = [
 export default function Skills() {
     const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
-    const getTechIcon = (techName: string) => {
+    // Memoize getTechIcon to prevent recreation on each render
+    const getTechIcon = useMemo(() => (techName: string) => {
         const Icon = techIcons[techName];
         return Icon ? Icon : HiCode; // Fallback to code icon
-    };
+    }, []);
 
     return (
         <section id="skills" className={styles.skills} ref={ref}>
+            {/* Removed duplicate SpaceBackground - rendered globally */}
             <div className={styles.container}>
                 <motion.h2
                     className={styles.title}

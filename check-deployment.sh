@@ -2,7 +2,7 @@
 
 echo "╔═══════════════════════════════════════════════════════════╗"
 echo "║                                                           ║"
-echo "║   🚀 VERCEL DEPLOYMENT READINESS CHECK                   ║"
+echo "║     VERCEL DEPLOYMENT READINESS CHECK                   ║"
 echo "║                                                           ║"
 echo "╚═══════════════════════════════════════════════════════════╝"
 echo ""
@@ -15,35 +15,35 @@ NC='\033[0m' # No Color
 
 cd /home/tushar/Downloads/Dev/portfolio
 
-echo "📦 Checking Build..."
+echo " Checking Build..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 # Test build
 if npm run build > /tmp/build-check.log 2>&1; then
-    echo -e "${GREEN}✅ Production build successful${NC}"
+    echo -e "${GREEN} Production build successful${NC}"
 else
-    echo -e "${RED}❌ Build failed - check /tmp/build-check.log${NC}"
+    echo -e "${RED} Build failed - check /tmp/build-check.log${NC}"
     tail -20 /tmp/build-check.log
     exit 1
 fi
 
 echo ""
-echo "🔐 Checking Environment Variables..."
+echo " Checking Environment Variables..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 if [ -f ".env.local" ]; then
     if grep -q "RESEND_API_KEY=re_" .env.local; then
-        echo -e "${GREEN}✅ RESEND_API_KEY configured locally${NC}"
-        echo -e "${YELLOW}⚠️  Remember to add this to Vercel dashboard${NC}"
+        echo -e "${GREEN} RESEND_API_KEY configured locally${NC}"
+        echo -e "${YELLOW}  Remember to add this to Vercel dashboard${NC}"
     else
-        echo -e "${RED}❌ RESEND_API_KEY not properly set${NC}"
+        echo -e "${RED} RESEND_API_KEY not properly set${NC}"
     fi
 else
-    echo -e "${YELLOW}⚠️  No .env.local file (OK for production)${NC}"
+    echo -e "${YELLOW}  No .env.local file (OK for production)${NC}"
 fi
 
 echo ""
-echo "📁 Checking Required Files..."
+echo " Checking Required Files..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 files=(

@@ -88,9 +88,9 @@
 }
 
 .socialLink:hover {
-    background-color: var(--text-primary);
-    color: var(--bg-primary);
-    border-color: var(--text-primary);
+    background-color: rgba(220, 20, 60, 0.9);
+    color: #ffffff;
+    border-color: rgba(220, 20, 60, 0.9);
     transform: translateY(-3px);
 }
 
@@ -123,7 +123,8 @@
 
 .backToTop:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 30px rgba(220, 20, 60, 0.5);
+    background-color: rgba(220, 20, 60, 0.9);
 }
 
 

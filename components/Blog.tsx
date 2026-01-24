@@ -1,18 +1,34 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { fadeInUp, staggerContainer, staggerItem } from '@/utils/animations';
 import { HiDocument, HiExternalLink } from 'react-icons/hi';
+import SpaceBackground from './SpaceBackground';
 import styles from './Blog.module.css';
 import { blogSummaries } from '@/utils/blogData';
 
 export default function Blog() {
     const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            setMousePosition({
+                x: (e.clientX - window.innerWidth / 2) / 50,
+                y: (e.clientY - window.innerHeight / 2) / 50,
+            });
+        };
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
 
     return (
         <section id="blog" className={styles.blog} ref={ref}>
+            <SpaceBackground layer="back" mousePosition={mousePosition} />
+            <SpaceBackground layer="mid" mousePosition={mousePosition} />
             <div className={styles.container}>
                 <motion.h2
                     className={styles.title}

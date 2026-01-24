@@ -1,6 +1,7 @@
 .about {
     padding: var(--spacing-2xl) 0;
-    background-color: var(--bg-secondary);
+    background-color: transparent;
+    position: relative;
 }
 
 .container {

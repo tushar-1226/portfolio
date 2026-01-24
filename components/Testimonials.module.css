@@ -1,6 +1,6 @@
 .testimonials {
     padding: var(--spacing-2xl) 0;
-    background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
+    background: transparent;
     position: relative;
 }
 
@@ -54,8 +54,8 @@
 }
 
 .card:hover {
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border-color: rgba(220, 20, 60, 0.4);
+    box-shadow: 0 8px 32px rgba(220, 20, 60, 0.2);
 }
 
 .stars {
@@ -65,7 +65,7 @@
 }
 
 .star {
-    color: #fbbf24;
+    color: #dc143c;
     font-size: 1.25rem;
 }
 
@@ -94,14 +94,14 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--text-tertiary) 0%, var(--text-secondary) 100%);
+    background: linear-gradient(135deg, rgba(220, 20, 60, 0.8) 0%, rgba(255, 36, 0, 0.6) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--bg-primary);
+    color: #ffffff;
     font-weight: 600;
     font-size: var(--font-size-lg);
-    border: 2px solid var(--border-color);
+    border: 2px solid rgba(220, 20, 60, 0.5);
 }
 
 .authorInfo {

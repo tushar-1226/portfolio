@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { fadeInUp } from '@/utils/animations';
+import SpaceBackground from './SpaceBackground';
 import styles from './Gallery.module.css';
 
 const photos = [
@@ -20,6 +21,7 @@ const photos = [
 export default function Gallery() {
     const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
     const [activeIndex, setActiveIndex] = useState(0);
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
     const navigate = (direction: 'prev' | 'next') => {
         if (direction === 'prev') {
@@ -28,6 +30,18 @@ export default function Gallery() {
             setActiveIndex((prev) => (prev === photos.length - 1 ? 0 : prev + 1));
         }
     };
+
+    // Mouse tracking
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            setMousePosition({
+                x: (e.clientX - window.innerWidth / 2) / 50,
+                y: (e.clientY - window.innerHeight / 2) / 50,
+            });
+        };
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
 
     // Keyboard navigation
     useEffect(() => {
@@ -77,6 +91,8 @@ export default function Gallery() {
 
     return (
         <section id="gallery" className={styles.gallery} ref={ref}>
+            <SpaceBackground layer="back" mousePosition={mousePosition} />
+            <SpaceBackground layer="mid" mousePosition={mousePosition} />
             <div className={styles.container}>
                 <motion.h2
                     className={styles.title}
