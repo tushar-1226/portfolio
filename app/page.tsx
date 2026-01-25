@@ -3,7 +3,6 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Projects from '@/components/Projects';
-import ScrollProgress from '@/components/ScrollProgress';
 import NetworkBackground from '@/components/NetworkBackground';
 import BackToTop from '@/components/BackToTop';
 
@@ -21,13 +20,12 @@ export default function Home() {
     <main>
       <NetworkBackground />
       <Navbar />
-      <ScrollProgress />
       <Hero />
       <About />
       <Projects />
-      <Testimonials />
-      <Achievements />
       <Skills />
+      <Achievements />
+      <Testimonials />
       <Blog />
       <Gallery />
       <Contact />

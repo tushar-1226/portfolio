@@ -233,6 +233,20 @@
     .cardOverlay {
         padding: 1.5rem;
     }
+
+    /* Responsive Indicators for Mobile/Tablet */
+    .indicator {
+        width: 8px;
+        height: 8px;
+    }
+
+    .indicatorActive {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(220, 20, 60, 1);
+        transform: scale(1.2);
+    }
 }
 
 @media (max-width: 480px) {
@@ -255,11 +269,15 @@
     }
 
     .indicator {
-        width: 8px;
-        height: 8px;
+        width: 6px;
+        height: 6px;
     }
 
     .indicatorActive {
-        width: 24px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(220, 20, 60, 1);
+        transform: scale(1.2);
     }
 }

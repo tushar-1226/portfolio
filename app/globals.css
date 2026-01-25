@@ -88,6 +88,16 @@
   /* Crimson accent */
   --accent-secondary: #ef4444;
   /* Bright red accent */
+
+  /* Particle Colors */
+  --particle-color: rgba(220, 38, 38, 0.15);
+  --particle-connect: rgba(220, 38, 38, 0.1);
+}
+
+:root {
+  /* ... existing dark theme defaults ... */
+  --particle-color: rgba(255, 255, 255, 0.15);
+  --particle-connect: rgba(255, 255, 255, 0.1);
 }
 
 * {

@@ -11,12 +11,15 @@ interface Particle {
     radius: number;
 }
 
+import { useTheme } from '@/contexts/ThemeContext';
+
 export default function NetworkBackground() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const particlesRef = useRef<Particle[]>([]);
     const mouseRef = useRef({ x: 0, y: 0 });
     const animationFrameRef = useRef<number | undefined>(undefined);
     const isVisibleRef = useRef(true);
+    const { theme } = useTheme();
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -28,6 +31,11 @@ export default function NetworkBackground() {
         });
         if (!ctx) return;
 
+        // Theme colors
+        const isLight = theme === 'light';
+        const particleColor = isLight ? 'rgba(220, 38, 38, 0.15)' : 'rgba(255, 255, 255, 0.15)';
+        const connectionColorBase = isLight ? '220, 38, 38' : '255, 255, 255';
+
         // Set canvas size
         const setCanvasSize = () => {
             canvas.width = window.innerWidth;
@@ -38,15 +46,15 @@ export default function NetworkBackground() {
         // Create particles - reduced count by 50% for better performance
         const isMobile = window.innerWidth < 768;
         const particleCount = isMobile
-            ? Math.floor((window.innerWidth * window.innerHeight) / 40000) // Reduced from 25000
-            : Math.floor((window.innerWidth * window.innerHeight) / 30000); // Reduced from 15000
+            ? Math.floor((window.innerWidth * window.innerHeight) / 40000)
+            : Math.floor((window.innerWidth * window.innerHeight) / 30000);
         const particles: Particle[] = [];
 
         for (let i = 0; i < particleCount; i++) {
             particles.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                vx: (Math.random() - 0.5) * 0.3, // Reduced velocity
+                vx: (Math.random() - 0.5) * 0.3,
                 vy: (Math.random() - 0.5) * 0.3,
                 radius: Math.random() * 2 + 1,
             });
@@ -56,9 +64,9 @@ export default function NetworkBackground() {
         // Throttled mouse move handler - reduced frequency
         const handleMouseMove = throttle((e: MouseEvent) => {
             mouseRef.current = { x: e.clientX, y: e.clientY };
-        }, 50); // Throttle to 20fps for mouse tracking
+        }, 50);
 
-        // Page visibility handler - pause when tab is hidden
+        // Page visibility handler
         const handleVisibilityChange = () => {
             isVisibleRef.current = !document.hidden;
         };
@@ -71,10 +79,8 @@ export default function NetworkBackground() {
             return `${gridX},${gridY}`;
         };
 
-        // Build spatial grid
         const buildSpatialGrid = (particles: Particle[]) => {
             const grid = new Map<string, Particle[]>();
-
             particles.forEach(particle => {
                 const key = getGridKey(particle.x, particle.y);
                 if (!grid.has(key)) {
@@ -82,22 +88,18 @@ export default function NetworkBackground() {
                 }
                 grid.get(key)!.push(particle);
             });
-
             return grid;
         };
 
-        // Get neighboring cells
         const getNeighborCells = (x: number, y: number) => {
             const gridX = Math.floor(x / GRID_SIZE);
             const gridY = Math.floor(y / GRID_SIZE);
             const cells: string[] = [];
-
             for (let dx = -1; dx <= 1; dx++) {
                 for (let dy = -1; dy <= 1; dy++) {
                     cells.push(`${gridX + dx},${gridY + dy}`);
                 }
             }
-
             return cells;
         };
 
@@ -105,14 +107,12 @@ export default function NetworkBackground() {
         const targetFPS = 60;
         const frameInterval = 1000 / targetFPS;
 
-        // Animation loop with frame skipping
         const animate = (currentTime: number) => {
             if (!ctx || !canvas || !isVisibleRef.current) {
                 animationFrameRef.current = requestAnimationFrame(animate);
                 return;
             }
 
-            // Frame rate limiting
             const deltaTime = currentTime - lastFrameTime;
             if (deltaTime < frameInterval) {
                 animationFrameRef.current = requestAnimationFrame(animate);
@@ -120,49 +120,40 @@ export default function NetworkBackground() {
             }
             lastFrameTime = currentTime - (deltaTime % frameInterval);
 
-            // Clear canvas
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Build spatial grid for this frame
             const grid = buildSpatialGrid(particles);
 
-            // Update and draw particles
-            particles.forEach((particle, i) => {
-                // Update position
+            particles.forEach((particle) => {
                 particle.x += particle.vx;
                 particle.y += particle.vy;
 
-                // Bounce off edges
                 if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
                 if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
 
-                // Mouse interaction - reduced range for better performance
                 const dx = mouseRef.current.x - particle.x;
                 const dy = mouseRef.current.y - particle.y;
                 const distanceSquared = dx * dx + dy * dy;
 
-                if (distanceSquared < 22500) { // 150px radius (reduced from 150)
+                if (distanceSquared < 22500) {
                     const distance = Math.sqrt(distanceSquared);
                     const force = (150 - distance) / 150;
-                    particle.vx += (dx / distance) * force * 0.008; // Reduced force
+                    particle.vx += (dx / distance) * force * 0.008;
                     particle.vy += (dy / distance) * force * 0.008;
                 }
 
-                // Limit velocity
                 const speedSquared = particle.vx * particle.vx + particle.vy * particle.vy;
-                if (speedSquared > 4) { // max speed = 2
+                if (speedSquared > 4) {
                     const speed = Math.sqrt(speedSquared);
                     particle.vx = (particle.vx / speed) * 2;
                     particle.vy = (particle.vy / speed) * 2;
                 }
 
-                // Draw particle
                 ctx.beginPath();
                 ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+                ctx.fillStyle = particleColor;
                 ctx.fill();
 
-                // Draw connections using spatial grid (much more efficient)
                 const neighborCells = getNeighborCells(particle.x, particle.y);
                 const nearbyParticles = new Set<Particle>();
 
@@ -178,16 +169,13 @@ export default function NetworkBackground() {
                     const dy = particle.y - otherParticle.y;
                     const distanceSquared = dx * dx + dy * dy;
 
-                    // Connect particles within 150px (using squared distance for performance)
-                    if (distanceSquared < 22500) { // 150 * 150
+                    if (distanceSquared < 22500) {
+                        const distance = Math.sqrt(distanceSquared);
+                        const opacity = (1 - distance / 150) * 0.15;
                         ctx.beginPath();
                         ctx.moveTo(particle.x, particle.y);
                         ctx.lineTo(otherParticle.x, otherParticle.y);
-
-                        // Opacity based on distance
-                        const distance = Math.sqrt(distanceSquared);
-                        const opacity = (1 - distance / 150) * 0.1;
-                        ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
+                        ctx.strokeStyle = `rgba(${connectionColorBase}, ${opacity})`;
                         ctx.lineWidth = 0.5;
                         ctx.stroke();
                     }
@@ -197,15 +185,12 @@ export default function NetworkBackground() {
             animationFrameRef.current = requestAnimationFrame(animate);
         };
 
-        // Event listeners
         window.addEventListener('mousemove', handleMouseMove);
         window.addEventListener('resize', setCanvasSize);
         document.addEventListener('visibilitychange', handleVisibilityChange);
 
-        // Start animation
         animationFrameRef.current = requestAnimationFrame(animate);
 
-        // Cleanup
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
             window.removeEventListener('resize', setCanvasSize);
@@ -214,7 +199,7 @@ export default function NetworkBackground() {
                 cancelAnimationFrame(animationFrameRef.current);
             }
         };
-    }, []);
+    }, [theme]);
 
     return (
         <canvas
