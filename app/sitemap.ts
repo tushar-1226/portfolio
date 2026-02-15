@@ -1,8 +1,8 @@
-export default function sitemap() {
-    const baseUrl = 'https://yourportfolio.com';
+import { getSortedPostsData } from '@/lib/blog';
 
-    // Blog post IDs
-    const blogPosts = ['1', '2', '3', '4'];
+export default function sitemap() {
+    const baseUrl = 'https://yourportfolio.com'; // TODO: Update with actual domain
+    const posts = getSortedPostsData();
 
     return [
         {
@@ -36,9 +36,9 @@ export default function sitemap() {
             priority: 0.6,
         },
         // Individual blog posts
-        ...blogPosts.map((id) => ({
-            url: `${baseUrl}/blog/${id}`,
-            lastModified: new Date(),
+        ...posts.map((post) => ({
+            url: `${baseUrl}/blog/${post.slug}`,
+            lastModified: new Date(post.date),
             changeFrequency: 'monthly' as const,
             priority: 0.7,
         })),

@@ -15,7 +15,13 @@ const Gallery = dynamic(() => import('@/components/Gallery'));
 const Contact = dynamic(() => import('@/components/Contact'));
 const Footer = dynamic(() => import('@/components/Footer'));
 
+import { getSortedPostsData } from '@/lib/blog';
+
+// ... other imports
+
 export default function Home() {
+  const posts = getSortedPostsData();
+
   return (
     <main>
       <SolidBackground />
@@ -26,7 +32,7 @@ export default function Home() {
       <Skills />
       <Achievements />
       <Testimonials />
-      <Blog />
+      <Blog posts={posts} />
       <Gallery />
       <Contact />
       <Footer />

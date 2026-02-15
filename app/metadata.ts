@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+    manifest: '/manifest.json',
     title: 'Tushar Kumar',
     description: 'Portfolio of Tushar Kumar - Python Backend Engineer specializing in AI, Machine Learning, and Full-Stack Development. Experienced in building scalable applications with Azure, OpenAI, Django, and Next.js.',
     keywords: [

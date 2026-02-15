@@ -8,9 +8,13 @@ import { fadeInUp, staggerContainer, staggerItem } from '@/utils/animations';
 import { HiDocument, HiExternalLink } from 'react-icons/hi';
 import SpaceBackground from './SpaceBackground';
 import styles from './Blog.module.css';
-import { blogSummaries } from '@/utils/blogData';
+import { BlogPost } from '@/lib/blog';
 
-export default function Blog() {
+interface BlogProps {
+    posts: BlogPost[];
+}
+
+export default function Blog({ posts }: BlogProps) {
     const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -54,8 +58,8 @@ export default function Blog() {
                     initial="hidden"
                     animate={isVisible ? 'visible' : 'hidden'}
                 >
-                    {blogSummaries.map((post) => (
-                        <Link key={post.id} href={`/blog/${post.id}`}>
+                    {posts.map((post) => (
+                        <Link key={post.slug} href={`/blog/${post.slug}`}>
                             <motion.div
                                 className={`${styles.note} ${styles[post.color]}`}
                                 variants={staggerItem}
