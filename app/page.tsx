@@ -3,7 +3,7 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Projects from '@/components/Projects';
-import NetworkBackground from '@/components/NetworkBackground';
+import SolidBackground from '@/components/SolidBackground';
 import BackToTop from '@/components/BackToTop';
 
 // Dynamic imports for heavy components
@@ -18,7 +18,7 @@ const Footer = dynamic(() => import('@/components/Footer'));
 export default function Home() {
   return (
     <main>
-      <NetworkBackground />
+      <SolidBackground />
       <Navbar />
       <Hero />
       <About />

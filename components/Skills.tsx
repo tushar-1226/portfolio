@@ -24,6 +24,7 @@ import {
     SiGithub,
     SiLinux,
     SiHuggingface,
+    SiMongodb,
 } from 'react-icons/si';
 import type { ComponentType } from 'react';
 import styles from './Skills.module.css';
@@ -53,6 +54,7 @@ const techIcons: Record<string, ComponentType<{ size: number }>> = {
     'Agentic AI': FaRobot,
     'HuggingFace': SiHuggingface,
     'Machine Learning': FaLaptopCode,
+    'MongoDB': SiMongodb,
 };
 
 const skillCategories = [
@@ -76,6 +78,7 @@ const skillCategories = [
             'PostgreSQL',
             'GraphQL',
             'REST APIs',
+            'MongoDB',
         ],
     },
     {
