@@ -25,8 +25,8 @@ export default function Hero() {
 
     const handleResumeDownload = () => {
         const link = document.createElement('a');
-        link.href = '/resume.pdf';
-        link.download = 'Tushar_Kumar_Resume.pdf';
+        link.href = '/Latest_Resume_T.pdf';
+        link.download = 'Latest_Resume_T.pdf';
         link.click();
 
         toast.success('Resume downloaded successfully.', {

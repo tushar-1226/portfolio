@@ -123,10 +123,17 @@
 }
 
 .toggleButton.active {
-    background-color: rgba(255, 255, 255, 0.9);
-    color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.15);
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    border-color: var(--text-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='light'] .toggleButton.active {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    border-color: var(--text-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .formGroup {

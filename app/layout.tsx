@@ -22,9 +22,9 @@ export default function RootLayout({
         <link rel="canonical" href="https://yourportfolio.com" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-        {/* Favicon */}
-        <link rel="icon" type="image/png" href="/favicon.png" />
-        <link rel="apple-touch-icon" href="/favicon.png" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+
+
         <StructuredData />
       </head>
       <body className={inter.className} suppressHydrationWarning>

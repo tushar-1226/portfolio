@@ -6,31 +6,15 @@
     position: relative;
     padding: 8rem 0 4rem;
     overflow: hidden;
-    background: var(--bg-primary);
-    /* Subtle theme-aware gradient */
-    background: radial-gradient(ellipse at center, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    background: transparent;
 }
 
 /* Cinematic Glow - Neutral studio light behind name */
 .cinematicGlow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(circle,
-            var(--accent-primary) 0%,
-            var(--accent-secondary) 30%,
-            transparent 70%);
-    opacity: 0.15;
-    filter: blur(120px);
-    pointer-events: none;
-    z-index: 3;
-    animation: pulseGlow 8s ease-in-out infinite;
+    display: none;
 }
 
-@keyframes pulseGlow {
+/* @keyframes pulseGlow {
 
     0%,
     100% {
@@ -42,7 +26,7 @@
         opacity: 0.25;
         transform: translate(-50%, -50%) scale(1.1);
     }
-}
+} */
 
 .container {
     max-width: 1200px;
@@ -53,45 +37,16 @@
     z-index: 10;
 }
 
-/* Glassmorphic Panel - Apple Vision Pro Style with Red Glow */
+/* Main Content Panel (formerly glassmorphic) */
 .glassPanel {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--border-color);
-    border-radius: 32px;
     padding: 3rem 2.5rem;
-    box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
     margin-bottom: 3rem;
     transition: all 0.3s ease;
 }
 
-[data-theme='light'] .glassPanel {
-    background: rgba(255, 255, 255, 0.4);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.05),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5);
-}
 
-/* Glass panel inner glow */
-.glassPanel::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg,
-            transparent,
-            var(--border-color),
-            transparent);
-    opacity: 0.3;
-}
 
 .title {
     font-size: clamp(1rem, 3vw, 1.5rem);
