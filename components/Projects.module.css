@@ -33,8 +33,9 @@
 }
 
 .card:hover {
-    border-color: rgba(220, 20, 60, 0.6);
-    box-shadow: 0 20px 40px rgba(220, 20, 60, 0.2);
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
 }
 
 .cardContent {
@@ -176,20 +177,22 @@
     border-color: var(--text-primary);
 }
 
-/* Featured Card Styling - Red Theme */
+/* Featured Card Styling - Neutral Theme */
 .featuredCard {
     position: relative;
-    background: linear-gradient(135deg,
-            rgba(220, 20, 60, 0.15) 0%,
-            rgba(255, 36, 0, 0.1) 50%,
-            var(--bg-secondary) 100%);
-    border: 2px solid rgba(220, 20, 60, 0.5);
-    box-shadow: 0 8px 32px rgba(220, 20, 60, 0.3);
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.1) 0%,
+        var(--bg-secondary) 100%
+    );
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
 }
 
 .featuredCard:hover {
-    border-color: rgba(220, 20, 60, 0.8);
-    box-shadow: 0 20px 60px rgba(220, 20, 60, 0.4);
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 20px 60px rgba(255, 255, 255, 0.2);
 }
 
 .featuredBadge {
@@ -200,16 +203,16 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background: linear-gradient(135deg, #dc143c 0%, #ff2400 100%);
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
     color: #ffffff;
     border-radius: var(--radius-md);
     font-size: var(--font-size-xs);
     font-weight: 600;
-    box-shadow: 0 4px 12px rgba(220, 20, 60, 0.5);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
 }
 
 .featuredCard .projectTitle {
-    background: linear-gradient(135deg, #ff2400 0%, #dc143c 100%);
+    background: linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent-primary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

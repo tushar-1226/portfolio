@@ -33,16 +33,16 @@ export default function ConfettiBackground() {
         });
         if (!ctx) return;
 
-        // Confetti colors - vibrant and celebratory
+        // Confetti colors - neutral, brown, white, and black palette
         const confettiColors = [
-            '#FF6B35', // Orange
-            '#FFA500', // Yellow-Orange
-            '#FFD60A', // Yellow
-            '#FF006E', // Pink
-            '#E71D36', // Red
-            '#8338EC', // Purple
-            '#3A86FF', // Blue
-            '#06FFA5', // Cyan
+            '#8D6E63', // Light Brown
+            '#795548', // Brown
+            '#5D4037', // Dark Brown
+            '#FFFFFF', // White
+            '#F5F5F5', // Off-White
+            '#000000', // Black
+            '#333533', // Mid Surface
+            '#404240', // Light Surface
         ];
 
         // Set canvas size

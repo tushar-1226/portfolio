@@ -1,9 +1,7 @@
 'use client';
 
 import { Toaster } from 'sonner';
-import StructuredData from '@/components/StructuredData';
 import { ThemeProvider, useTheme } from '@/contexts/ThemeContext';
-import './globals.css';
 
 // Wrapper component to access theme
 function ToasterWrapper() {
@@ -25,7 +23,6 @@ export default function ClientLayout({
 }) {
     return (
         <ThemeProvider>
-            <StructuredData />
             {children}
             <ToasterWrapper />
         </ThemeProvider>

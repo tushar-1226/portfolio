@@ -11,7 +11,7 @@
     background: radial-gradient(ellipse at center, var(--bg-secondary) 0%, var(--bg-primary) 100%);
 }
 
-/* Cinematic Glow - Red/Crimson studio light behind name */
+/* Cinematic Glow - Neutral studio light behind name */
 .cinematicGlow {
     position: absolute;
     top: 50%;
@@ -72,9 +72,9 @@
 
 [data-theme='light'] .glassPanel {
     background: rgba(255, 255, 255, 0.4);
-    border: 1px solid rgba(220, 38, 38, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow:
-        0 8px 32px rgba(220, 38, 38, 0.05),
+        0 8px 32px rgba(0, 0, 0, 0.05),
         inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
@@ -116,7 +116,7 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     position: relative;
-    filter: drop-shadow(0 4px 20px rgba(220, 20, 60, 0.2));
+    filter: drop-shadow(0 4px 20px rgba(255, 255, 255, 0.1));
 }
 
 .subtitle {
@@ -166,7 +166,7 @@
 
 [data-theme='light'] .glassButton {
     background: rgba(255, 255, 255, 0.5);
-    border: 1px solid rgba(220, 38, 38, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 /* Button inner glow effect */
@@ -189,11 +189,11 @@
 }
 
 .glassButton:hover {
-    background: rgba(220, 38, 38, 0.1);
+    background: rgba(255, 255, 255, 0.1);
     border-color: var(--accent-primary);
     box-shadow:
-        0 0 20px rgba(220, 20, 60, 0.2),
-        inset 0 1px 0 rgba(255, 100, 100, 0.2);
+        0 0 20px rgba(255, 255, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
     transform: translateY(-4px);
 }
 

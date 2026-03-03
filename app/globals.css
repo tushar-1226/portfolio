@@ -3,21 +3,20 @@
 @tailwind utilities;
 
 :root {
-  /* Red & Black Color Palette */
+  /* Neutral Monochrome Color Palette */
   --color-black: #000000;
   --color-white: #ffffff;
-  --color-red-900: #7f1d1d;
-  --color-red-800: #991b1b;
-  --color-red-700: #b91c1c;
-  --color-red-600: #dc2626;
-  --color-red-500: #ef4444;
-  --color-red-400: #f87171;
-  --color-red-300: #fca5a5;
-  --color-red-200: #fecaca;
-  --color-crimson: #dc143c;
-  --color-scarlet: #ff2400;
-  --color-blood-red: #8b0000;
-  --color-dark-red: #8b0000;
+  --color-dark-surface: #000000;
+  --color-mid-surface: #111111;
+  --color-light-surface: #222222;
+  --color-gray-900: #1a1a1a;
+  --color-gray-800: #262626;
+  --color-gray-700: #333333;
+  --color-gray-600: #404040;
+  --color-gray-500: #737373;
+  --color-gray-400: #a3a3a3;
+  --color-gray-300: #d4d4d4;
+  --color-gray-200: #e5e5e5;
 
   /* Spacing */
   --spacing-xs: 0.5rem;
@@ -51,49 +50,40 @@
   --transition-slow: 500ms ease-in-out;
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(220, 20, 60, 0.1);
-  --shadow-md: 0 4px 6px -1px rgba(220, 20, 60, 0.2);
-  --shadow-lg: 0 10px 15px -3px rgba(220, 20, 60, 0.3);
-  --shadow-xl: 0 20px 25px -5px rgba(220, 20, 60, 0.4);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
 
-  /* Theme Colors - Red & Black */
+  /* Theme Colors - Dark Theme (Default) */
   --bg-primary: #000000;
-  --bg-secondary: #0a0000;
-  --bg-tertiary: #1a0000;
-  --bg-color: #1a1a1a;
+  --bg-secondary: #0a0a0a;
+  --bg-tertiary: #171717;
+  --bg-color: #000000;
   --text-primary: #ffffff;
-  --text-secondary: #fca5a5;
-  --text-tertiary: #f87171;
-  --border-color: #dc2626;
-  --accent-primary: #dc143c;
-  --accent-secondary: #ef4444;
+  --text-secondary: #cccccc;
+  --text-tertiary: #999999;
+  --border-color: #333333;
+  --accent-primary: #ffffff; /* White Accent */
+  --accent-secondary: #eeeeee; /* Off-White Accent */
 }
 
-/* Light Theme - Red & White Aesthetic */
-[data-theme='light'] {
-  --bg-primary: #fef2f2;
-  /* Very light red tint */
-  --bg-secondary: #fee2e2;
-  /* Light red background */
-  --bg-tertiary: #fecaca;
-  /* Soft red for depth */
-  --bg-color: #fafafa;
-  --text-primary: #1a0000;
-  /* Near black with red tint */
-  --text-secondary: #991b1b;
-  /* Dark red for secondary text */
-  --text-tertiary: #b91c1c;
-  /* Medium red for tertiary text */
-  --border-color: #fca5a5;
-  /* Light red borders */
-  --accent-primary: #dc143c;
-  /* Crimson accent */
-  --accent-secondary: #ef4444;
-  /* Bright red accent */
+/* Light Theme - Clean Aesthetic */
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #e5e5e5;
+  --bg-color: #ffffff;
+  --text-primary: #000000; /* Solid black */
+  --text-secondary: #1a1a1a;
+  --text-tertiary: #333333;
+  --border-color: #000000; /* Solid black edge */
+  --accent-primary: #000000; /* Black accent instead of red */
+  --accent-secondary: #333533;
 
   /* Particle Colors */
-  --particle-color: rgba(220, 38, 38, 0.15);
-  --particle-connect: rgba(220, 38, 38, 0.1);
+  --particle-color: rgba(0, 0, 0, 0.15);
+  --particle-connect: rgba(0, 0, 0, 0.1);
 }
 
 :root {
@@ -113,16 +103,15 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 /* Custom Scrollbar - Theme Aware */
@@ -204,7 +193,6 @@ button {
   padding: 0 var(--spacing-md);
 }
 
-
 /* Mobile Small (320px - 480px) */
 @media (max-width: 480px) {
   :root {
@@ -253,7 +241,6 @@ button {
   }
 }
 
-
 /* Smooth Animations */
 @keyframes fadeIn {
   from {
@@ -289,9 +276,13 @@ button {
   }
 }
 
-/* Gradient Text Effect - Red Theme */
+/* Gradient Text Effect - Monochrome Theme */
 .gradient-text {
-  background: linear-gradient(135deg, #ff2400 0%, #dc143c 50%, #8b0000 100%);
+  background: linear-gradient(
+    135deg,
+    var(--text-primary) 0%,
+    var(--text-tertiary) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

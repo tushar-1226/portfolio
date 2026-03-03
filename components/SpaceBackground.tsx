@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { useEffect, useState, useRef, memo } from 'react';
 import { useIntersectionObserver, useIsMobile, usePrefersReducedMotion } from '@/utils/performance';
 import styles from './SpaceBackground.module.css';
@@ -52,6 +51,8 @@ const SpaceBackground = memo(function SpaceBackground({ layer, mousePosition }: 
     const [constellationLines, setConstellationLines] = useState<ConstellationLine[]>([]);
 
     useEffect(() => {
+        if (!hasIntersected || prefersReducedMotion) return;
+
         // Generate stars for back layer - reduced from 200 to 60 (70% reduction)
         if (layer === 'back') {
             const count = isMobile ? 30 : 60; // Even fewer on mobile
@@ -122,7 +123,7 @@ const SpaceBackground = memo(function SpaceBackground({ layer, mousePosition }: 
             }
             setConstellationLines(newLines);
         }
-    }, [layer, isMobile]); // Only regenerate when layer or mobile state changes
+    }, [hasIntersected, prefersReducedMotion, layer, isMobile]); // Only generate when needed
 
     // Don't render if not in viewport yet and hasn't been seen
     if (!hasIntersected) {

@@ -32,7 +32,7 @@
 }
 
 .categoryCard:hover {
-    border-color: rgba(220, 20, 60, 0.6);
+    border-color: rgba(255, 255, 255, 0.6);
     transform: translateY(-5px);
 }
 
@@ -68,7 +68,7 @@
 
 .skillIcon:hover {
     background-color: var(--bg-primary);
-    border-color: rgba(220, 20, 60, 0.6);
+    border-color: rgba(255, 255, 255, 0.6);
     color: var(--text-primary);
 }
 

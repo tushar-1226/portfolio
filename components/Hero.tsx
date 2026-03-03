@@ -1,13 +1,15 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { HiArrowDown } from 'react-icons/hi';
 import { toast } from 'sonner';
 import { useMemo } from 'react';
 import { staggerContainer, staggerItem } from '@/utils/animations';
 import { useThrottledMousePosition } from '@/utils/performance';
-import SpaceBackground from './SpaceBackground';
 import styles from './Hero.module.css';
+
+const SpaceBackground = dynamic(() => import('./SpaceBackground'), { ssr: false });
 
 export default function Hero() {
     // Use throttled mouse position hook (much more efficient)

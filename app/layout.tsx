@@ -1,7 +1,15 @@
+import { Inter } from 'next/font/google';
 import ClientLayout from './ClientLayout';
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import StructuredData from '@/components/StructuredData';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import './globals.css';
 
 export { metadata } from './metadata';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export default function RootLayout({
   children,
@@ -14,26 +22,12 @@ export default function RootLayout({
         <link rel="canonical" href="https://yourportfolio.com" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-        {/* Preconnect to external domains */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
-        {/* DNS Prefetch for faster lookups */}
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-
         {/* Favicon */}
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="apple-touch-icon" href="/favicon.png" />
-
-        {/* Preload critical assets */}
-        <link
-          rel="preload"
-          href="/profile.jpg"
-          as="image"
-          type="image/jpeg"
-        />
+        <StructuredData />
       </head>
-      <body suppressHydrationWarning>
+      <body className={inter.className} suppressHydrationWarning>
         <ClientLayout>
           {children}
         </ClientLayout>
