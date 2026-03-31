@@ -19,7 +19,14 @@ import {
     SiDjango,
     SiNodedotjs,
     SiJavascript,
-    SiTypescript
+    SiTypescript,
+    SiMongodb,
+    SiDocker,
+    SiFastapi,
+    SiHtml5,
+    SiCss3,
+    SiPandas,
+    SiFlask
 } from 'react-icons/si';
 import styles from './Projects.module.css';
 
@@ -40,6 +47,13 @@ const techIcons: Record<string, ComponentType<{ size: number }>> = {
     'Node.js': SiNodedotjs,
     'JavaScript': SiJavascript,
     'TypeScript': SiTypescript,
+    'MongoDB': SiMongodb,
+    'Docker': SiDocker,
+    'FastAPI': SiFastapi,
+    'HTML5': SiHtml5,
+    'CSS3': SiCss3,
+    'Pandas': SiPandas,
+    'Flask': SiFlask,
 };
 
 const projects = [
@@ -50,7 +64,7 @@ const projects = [
             'Enterprise AI dataset creation platform that processes multi-source web content and documents with AI-powered quality analysis, enabling organizations to structure large-scale content with 95%+ accuracy rates.',
         tech: ['Python', 'Azure', 'OpenAI', 'Next.js', 'React'],
         github: '#',
-        demo: 'https://agi.alactic.io/',
+        demo: 'https://platform.alactic.io/',
         featured: true,
         category: ['AI/ML', 'Python', 'Web Development'],
     },
@@ -80,7 +94,7 @@ const projects = [
         id: 3,
         title: 'Cyson Chatbot',
         description:
-            'A realtime inegrated Chat-bot for the Cyson company on Wordpress website with custom plugin.',
+            'A realtime integrated Chat-bot for the Cyson company on Wordpress website with custom plugin.',
         tech: ['Next.js', 'Python', 'MongoDB', 'Javascript'],
         github: 'https://www.cyson.in',
         demo: 'https://cysonproduction.alactic.io',
@@ -91,7 +105,7 @@ const projects = [
         id: 4,
         title: 'True Asset Chatbot',
         description:
-            'A realtime inegrated Chat-bot for the True Asset company on Wordpress website with custom plugin.',
+            'A realtime integrated Chat-bot for the True Asset company on Wordpress website with custom plugin.',
         tech: ['Next.js', 'Python', 'MongoDB', 'Javascript'],
         github: 'https://www.trueasset.com',
         demo: 'https://trueassetsproduction.alactic.io/',
@@ -108,6 +122,39 @@ const projects = [
         demo: 'https://selectify-puce.vercel.app/',
         featured: true,
         category: ['Web Development', 'AI/ML'],
+    },
+    {
+        id: 6,
+        title: 'Alactic CRM',
+        description:
+            'A full-stack, multi-tenant CRM system enabling businesses to manage leads, emails, and sales pipelines from a single dashboard. Features Meta Lead Ads integration, OAuth, and AI-powered capabilities.',
+        tech: ['React', 'Node.js', 'Express', 'MongoDB', 'OpenAI', 'Docker'],
+        github: '#',
+        demo: 'https://crm.alactic.io/login',
+        featured: true,
+        category: ['Web Development', 'AI/ML'],
+    },
+    {
+        id: 7,
+        title: 'Hakeem Chatbot',
+        description:
+            'AI-powered chatbot for a chiropractic clinic using a custom fine-tuned GPT-4 model. Features offline fallback, conversation history, MongoDB persistence, and data processing pipelines for model training.',
+        tech: ['FastAPI', 'OpenAI', 'MongoDB', 'Python', 'JavaScript', 'HTML5', 'CSS3', 'Pandas'],
+        github: '#',
+        demo: 'https://hakeemproduction.alactic.io/',
+        featured: false,
+        category: ['Web Development', 'AI/ML', 'Python'],
+    },
+    {
+        id: 8,
+        title: 'NVG Bot — AI Real Estate Chatbot',
+        description:
+            'GPT-4o-mini powered chatbot with RAG for a real estate company. Features include property search, AI-driven Q&A, web scraping, PDF extraction, and cloud deployment.',
+        tech: ['Flask', 'Python', 'MongoDB', 'JavaScript', 'HTML5', 'CSS3', 'OpenAI'],
+        github: '#',
+        demo: 'https://adityadweller.alactic.io/',
+        featured: false,
+        category: ['Web Development', 'AI/ML', 'Python'],
     }
 ];
 
