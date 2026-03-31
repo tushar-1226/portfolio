@@ -69,9 +69,7 @@ export default function Contact() {
 
             // If backend is not available or in production, use Next.js API
             if (!response) {
-                // In production, use Railway backend URL
-                const prodApiUrl = 'https://portfolio-production-5082.up.railway.app/api/contact';
-                const apiUrl = process.env.NODE_ENV === 'production' ? prodApiUrl : '/api/contact';
+                const apiUrl = '/api/contact';
                 response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: {
